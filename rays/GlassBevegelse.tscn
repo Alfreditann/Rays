@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://yi4tb7f18tqb"]
+
+[ext_resource type="Script" uid="uid://circ0lt31nvgr" path="res://glass_bevegelse.gd" id="1_syq6g"]
+[ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="2_0tod6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3css"]
+size = Vector2(26, 30)
+
+[node name="GlassBevegelse" type="StaticBody2D"]
+script = ExtResource("1_syq6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+texture = ExtResource("2_0tod6")
+region_enabled = true
+region_rect = Rect2(340, 1, 25, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o3css")
