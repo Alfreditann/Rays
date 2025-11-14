@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ok8owyqfy5qi"]
+[gd_scene load_steps=5 format=3 uid="uid://ok8owyqfy5qi"]
 
 [ext_resource type="Texture2D" uid="uid://s4gjmeqahug8" path="res://Sprites/Firefox_wallpaper.png" id="1_j3i5w"]
 [ext_resource type="Script" uid="uid://bvstupgk6s0ue" path="res://ligth_generator.gd" id="1_t04fq"]
+[ext_resource type="Script" uid="uid://d1v84qis3cv88" path="res://ray_cast_2d.gd" id="3_q2p8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t04fq"]
 size = Vector2(771.4286, 1024)
@@ -10,11 +11,14 @@ size = Vector2(771.4286, 1024)
 script = ExtResource("1_t04fq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 143)
-scale = Vector2(0.29166666, 0.27929688)
+position = Vector2(2.6000023, 73.215996)
+scale = Vector2(0.15, 0.143)
 texture = ExtResource("1_j3i5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 143)
-scale = Vector2(0.29166666, 0.27929688)
+position = Vector2(2.6000023, 73.215996)
+scale = Vector2(0.15, 0.143)
 shape = SubResource("RectangleShape2D_t04fq")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+script = ExtResource("3_q2p8o")

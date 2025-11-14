@@ -6,6 +6,6 @@
 [node name="Level1" type="Node2D"]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(269, 330)
+position = Vector2(269, 497)
 
 [node name="LigthRay" parent="." instance=ExtResource("2_hbghi")]
