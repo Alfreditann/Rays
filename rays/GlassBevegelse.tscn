@@ -1,19 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://yi4tb7f18tqb"]
+[gd_scene load_steps=8 format=3 uid="uid://yi4tb7f18tqb"]
 
-[ext_resource type="Script" uid="uid://circ0lt31nvgr" path="res://glass_bevegelse.gd" id="1_syq6g"]
 [ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="2_0tod6"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj8dg"]
+atlas = ExtResource("2_0tod6")
+region = Rect2(338, 0, 26, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syq6g"]
+atlas = ExtResource("2_0tod6")
+region = Rect2(161, 256, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tod6"]
+atlas = ExtResource("2_0tod6")
+region = Rect2(338, 32, 26, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3css"]
+atlas = ExtResource("2_0tod6")
+region = Rect2(338, 64, 26, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5i7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj8dg")
+}],
+"loop": true,
+"name": &"first_mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syq6g")
+}],
+"loop": true,
+"name": &"painting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tod6")
+}],
+"loop": true,
+"name": &"second_mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3css")
+}],
+"loop": true,
+"name": &"third_mirror",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3css"]
-size = Vector2(26, 30)
+size = Vector2(64.5, 83)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
-script = ExtResource("1_syq6g")
+position = Vector2(520, 303)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-top_level = true
-texture = ExtResource("2_0tod6")
-region_enabled = true
-region_rect = Rect2(340, 1, 25, 30)
+[node name="Mirror" type="AnimatedSprite2D" parent="."]
+position = Vector2(17.5, -29.25)
+scale = Vector2(2.3461537, 2.6714287)
+sprite_frames = SubResource("SpriteFrames_f5i7f")
+animation = &"first_mirror"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.75, -32.5)
 shape = SubResource("RectangleShape2D_o3css")
