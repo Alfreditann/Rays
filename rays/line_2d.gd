@@ -1,4 +1,4 @@
-extends RayCast2D
+extends Line2D
 
 
 # Called when the node enters the scene tree for the first time.

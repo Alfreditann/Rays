@@ -1,23 +1,42 @@
 extends StaticBody2D
-@onready  var ray := $RayCast2D
-var beam_enabled :=false
-var max_distance := 500
-var ray_scene = preload("res://ligth_ray.tscn")
-var ray_instance: Node2D = null
+
+@onready var ray: RayCast2D = $RayCast2D
+@onready var line: Line2D = $Line2D
+
+
+var active: bool = false
+var max_distance: float = 50000.0  # effectively “infinite”
 
 func _ready() -> void:
 	ray.enabled = false
-
+	line.visible = false
+	line.points = [Vector2.ZERO, Vector2.ZERO]
 
 func _process(delta: float) -> void:
+	# Toggle the beam with a key
+	if ray.is_colliding():
+		var cp = ray.get_collision_point()
+		var local_cp = to_local(cp)
+		line.points[1]
+	if Input.is_action_just_pressed("ui_accept"):
+		active = !active
+		ray.enabled = active
+		line.visible = active
 
-	# Spawn ray when pressing the action
-	if Input.is_action_just_pressed("ui_accept") and ray_instance == null:
-		ray_instance = ray_scene.instantiate()
-		ray_instance.global_position = global_position
-		get_tree().current_scene.add_child(ray_instance)
+	if active:
+		# Update ray target
+		ray.target_position = Vector2(max_distance, 0).rotated(rotation)
+		ray.force_raycast_update()
 
-	# Remove it if already spawned and the key is pressed again
-	elif Input.is_action_just_pressed("ui_accept") and ray_instance != null:
-		ray_instance.queue_free()
-		ray_instance = null
+		# Determine where the line should end
+		var end_point: Vector2
+		if ray.is_colliding():
+			# If it hits something, use collision point
+			end_point = to_local(ray.get_collision_point())
+		else:
+			# Otherwise, go “infinite” (really just max_distance)
+			end_point = Vector2(max_distance, 0).rotated(rotation)
+
+		# Update Line2D
+		line.points = [Vector2.ZERO, end_point]
+		
