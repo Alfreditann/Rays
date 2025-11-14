@@ -14,3 +14,7 @@ config/name="Rays"
 run/main_scene="uid://yi4tb7f18tqb"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[filesystem]
+
+import/blender/enabled=false
