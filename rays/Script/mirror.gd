@@ -1,20 +1,20 @@
 extends AnimatedSprite2D
 
-@onready var collision = $CollisionShape2D
+#@onready var hitbox = $CollisionShape2D
 
-var mirror_data = {
-	"first mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
-	"second mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
-	"third mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
-	"fourth mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)}
-}
+#var mirror_data = {
+	#"first mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
+	#"second mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
+	#"third mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)},
+	#"fourth mirror": {"shape": RectangleShape2D.new(), "position": Vector2(596, 310.5)}
+#}
 
 var directions = ["first mirror", "second mirror", "third mirror", "fourth mirror"]
 var current_index = 0
 
 func ready():
-	shapes["first mirror"].position= Vector2(596, 310.5)
-	shapes["second mirror"]
+	#mirror_data ["first mirror"].position = Vector2(596, 310)
+	#mirror_data ["second mirror"].position = Vector2(563, 311)
 	current_index = directions.find(animation)
 	if current_index == -1:
 		current_index = 0
