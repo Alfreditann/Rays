@@ -2,6 +2,7 @@ extends Sprite2D
 
 var fireball = preload("res://rigid_body_2d.tscn")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
