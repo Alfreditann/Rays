@@ -65,6 +65,8 @@ animation = &"first mirror"
 script = ExtResource("2_syq6g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(572, 294.66666)
+polygon = PackedVector2Array(-13, 54.333344, 39, 52.333344, 37, -23.666656)
 
 [node name="Killbox" type="Area2D" parent="."]
 script = ExtResource("3_8dw2w")
