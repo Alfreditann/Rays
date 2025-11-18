@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Rays"
-run/main_scene="uid://f5f0cra4vv3c"
+run/main_scene="uid://dkoij8pmnxp6a"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [filesystem]
 
