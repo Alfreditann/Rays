@@ -17,7 +17,7 @@ func _process(delta):
 	
 	if Input.is_action_just_released("move_rigth") || Input.is_action_just_released("ui_right"):
 		pos = Vector2(1,0)
-		
+		print("hei")
 	elif Input.is_action_just_released("move_left") || Input.is_action_just_released("ui_left"):
 
 		pos = Vector2(-1,0)
