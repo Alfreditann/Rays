@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var fireball = preload("res://rigid_body_2d.tscn")
+var fireball = preload("res://laser.tscn")
 
 
 
@@ -16,13 +16,15 @@ func _process(delta):
 	#if $Timer.time_left <= 0 :
 
 		if Input.is_action_just_pressed("ui_accept"):
+			print("Hit detected!") # Debug
 			var instance = fireball.instantiate()
 			instance.global_position = Vector2(global_position)
 			get_tree().current_scene.add_child(instance)
+			
 			#$Timer.wait_time = 1
 			#$Timer.start()
-	#else:
-		#pass
+		else:
+			pass
 	
 	
 	
