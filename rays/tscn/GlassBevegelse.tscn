@@ -4,9 +4,6 @@
 [ext_resource type="Script" uid="uid://bgvbhtlyjkoqu" path="res://Script/mirror.gd" id="2_syq6g"]
 [ext_resource type="Script" uid="uid://cy70asebt7toc" path="res://Script/kill_box.gd" id="3_8dw2w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
-size = Vector2(52.406284, 51.1828)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_syq6g"]
 atlas = ExtResource("2_0tod6")
 region = Rect2(338, 0, 26, 32)
@@ -58,6 +55,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
+size = Vector2(42.25, 44.784943)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb2hk"]
 size = Vector2(61, 78)
 
@@ -65,6 +65,14 @@ size = Vector2(61, 78)
 size = Vector2(36, 34)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 16
+
+[node name="Mirror" type="AnimatedSprite2D" parent="."]
+position = Vector2(579.99994, 310.5)
+scale = Vector2(2.4615383, 2.6571429)
+sprite_frames = SubResource("SpriteFrames_f5i7f")
+animation = &"first mirror"
 script = ExtResource("2_syq6g")
 
 [node name="Activate_Radius" type="Area2D" parent="."]
@@ -73,15 +81,9 @@ scale = Vector2(2.4615383, 2.6571429)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
 modulate = Color(0.30639425, 0.6678538, 0.030069206, 1)
-position = Vector2(-0.6093445, 1.317215)
+position = Vector2(3.0517578e-05, -0.37634277)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_8dw2w")
-
-[node name="Mirror" type="AnimatedSprite2D" parent="."]
-position = Vector2(579.99994, 310.5)
-scale = Vector2(2.4615383, 2.6571429)
-sprite_frames = SubResource("SpriteFrames_f5i7f")
-animation = &"first mirror"
 
 [node name="Killbox" type="Area2D" parent="."]
 script = ExtResource("3_8dw2w")

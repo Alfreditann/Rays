@@ -1,5 +1,4 @@
-extends StaticBody2D
-
+extends AnimatedSprite2D
 #@onready var hitbox = $CollisionShape2D
 
 #var mirror_data = {
