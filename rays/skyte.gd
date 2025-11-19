@@ -10,7 +10,7 @@ func _ready() -> void:
 		
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
 	#$Timer.time_left = 0
 	#if $Timer.time_left <= 0 :
