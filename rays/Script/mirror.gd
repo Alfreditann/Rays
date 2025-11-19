@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends StaticBody2D
 
 #@onready var hitbox = $CollisionShape2D
 
