@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://xwd1n1lo0jlk"]
+[gd_scene load_steps=8 format=3 uid="uid://xwd1n1lo0jlk"]
 
+[ext_resource type="Script" uid="uid://bak6b8se7fk2k" path="res://Script/mirror_new.gd" id="1_m63uv"]
 [ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="1_ouiee"]
 
 [sub_resource type="Animation" id="Animation_m63uv"]
@@ -47,6 +48,7 @@ size = Vector2(24, 29)
 size = Vector2(15.031334, 16.182795)
 
 [node name="Mirror" type="StaticBody2D"]
+script = ExtResource("1_m63uv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 9)
@@ -66,11 +68,14 @@ position = Vector2(2, 8.5)
 shape = SubResource("RectangleShape2D_kgvea")
 
 [node name="Activate_Radius" type="Area2D" parent="."]
-position = Vector2(579.99994, 310.5)
+position = Vector2(1.000061, 10)
 scale = Vector2(2.4615383, 2.6571429)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
 modulate = Color(0.30639425, 0.6678538, 0.030069206, 1)
-position = Vector2(-234.60927, -114.03226)
+position = Vector2(0.40622568, -1.8817196)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_atsgn")
+
+[connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
+[connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]

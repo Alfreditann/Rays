@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://f5f0cra4vv3c"]
+[gd_scene load_steps=14 format=3 uid="uid://f5f0cra4vv3c"]
 
+[ext_resource type="Script" uid="uid://bjbdpm2kmjtml" path="res://tscn/Changing_Mirror.gd" id="1_eb2hk"]
 [ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="2_0tod6"]
 [ext_resource type="Script" uid="uid://bgvbhtlyjkoqu" path="res://Script/mirror.gd" id="2_syq6g"]
 [ext_resource type="Script" uid="uid://cy70asebt7toc" path="res://Script/kill_box.gd" id="3_8dw2w"]
@@ -55,6 +56,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fng4u"]
+size = Vector2(60, 80)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
 size = Vector2(42.25, 44.784943)
 
@@ -67,6 +71,7 @@ size = Vector2(36, 34)
 [node name="GlassBevegelse" type="StaticBody2D"]
 collision_layer = 5
 collision_mask = 16
+script = ExtResource("1_eb2hk")
 
 [node name="Mirror" type="AnimatedSprite2D" parent="."]
 position = Vector2(579.99994, 310.5)
@@ -74,6 +79,10 @@ scale = Vector2(2.4615383, 2.6571429)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
 animation = &"first mirror"
 script = ExtResource("2_syq6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(581, 312)
+shape = SubResource("RectangleShape2D_fng4u")
 
 [node name="Activate_Radius" type="Area2D" parent="."]
 position = Vector2(579.99994, 310.5)
@@ -100,4 +109,6 @@ position = Vector2(-1, 4)
 position = Vector2(593, 331)
 shape = SubResource("RectangleShape2D_paybu")
 
+[connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
+[connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]
 [connection signal="area_entered" from="Killbox" to="Killbox" method="_on_area_entered"]
