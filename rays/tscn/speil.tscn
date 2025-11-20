@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ttmhg10ufl4"]
+[gd_scene load_steps=4 format=3 uid="uid://b6u4tl1k2ra5o"]
 
-[ext_resource type="Script" uid="uid://bphb1tl2yg4q5" path="res://speil.gd" id="1_ftcnu"]
-[ext_resource type="Texture2D" uid="uid://0kgm2a60o7rq" path="res://icon.svg" id="1_vhqua"]
+[ext_resource type="Script" uid="uid://bphb1tl2yg4q5" path="res://Script/speil.gd" id="1_ftcnu"]
+[ext_resource type="Texture2D" uid="uid://1ug5sq5c524a" path="res://Sprites/icon.svg" id="1_vhqua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftcnu"]
 size = Vector2(120, 121)
@@ -10,7 +10,6 @@ size = Vector2(120, 121)
 size = Vector2(58, 59)
 
 [node name="StaticBody2D" type="StaticBody2D"]
-script = ExtResource("1_ftcnu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vhqua")
