@@ -26,12 +26,10 @@ func _input(event) -> void:
 	if not is_processing_input():
 		return
 	
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		current_index += 1
-	if current_index >= directions.size():
-		current_index = 0
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		current_index -= 1
-		if current_index >= directions.size():
-			current_index = 3
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			current_index = (current_index + 1) % directions.size()
+				
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			current_index = (current_index - 1) %  directions.size()
 	mirror.play(directions[current_index])
