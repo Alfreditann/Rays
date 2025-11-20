@@ -19,10 +19,6 @@ config/icon="res://Sprites/icon.svg"
 
 import/blender/enabled=false
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 move_rigth={
