@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg3m1m8dg0bcc"
-path="res://.godot/imported/gem stor + liten.png-ea9323c88a6a295ab2ead11875a35847.ctex"
+uid="uid://qclr14jeop0l"
+path="res://.godot/imported/icon.svg-4e1bca23fe115acb201696d24dd80d58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gem stor + liten.png"
-dest_files=["res://.godot/imported/gem stor + liten.png-ea9323c88a6a295ab2ead11875a35847.ctex"]
+source_file="res://Sprite sheet/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-4e1bca23fe115acb201696d24dd80d58.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
