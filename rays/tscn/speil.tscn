@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ttmhg10ufl4"]
+
+[ext_resource type="Script" uid="uid://bphb1tl2yg4q5" path="res://Script/speil.gd" id="1_ftcnu"]
+[ext_resource type="Texture2D" uid="uid://0kgm2a60o7rq" path="res://Sprites/icon.svg" id="1_vhqua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftcnu"]
+size = Vector2(120, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yq8w"]
+size = Vector2(58, 59)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_ftcnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vhqua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_ftcnu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-30, 30.5)
+shape = SubResource("RectangleShape2D_5yq8w")
+debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
