@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:rays/Sprite sheet/icon.svg.import
-uid="uid://0kgm2a60o7rq"
-path="res://.godot/imported/icon.svg-4e1bca23fe115acb201696d24dd80d58.ctex"
-========
-uid="uid://1ug5sq5c524a"
+uid="uid://bsklpf7fe5mr6"
 path="res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex"
->>>>>>>> main:rays/Sprites/icon.svg.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:rays/Sprite sheet/icon.svg.import
-source_file="res://Sprite sheet/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-4e1bca23fe115acb201696d24dd80d58.ctex"]
-========
 source_file="res://Sprites/icon.svg"
 dest_files=["res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex"]
->>>>>>>> main:rays/Sprites/icon.svg.import
 
 [params]
 
