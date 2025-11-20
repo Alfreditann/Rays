@@ -17,11 +17,11 @@ texture = ExtResource("1_vhqua")
 position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_ftcnu")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Speil_Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
 position = Vector2(-30, 30.5)
 shape = SubResource("RectangleShape2D_5yq8w")
 debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Speil_Hitbox" to="." method="_on_area_2d_area_entered"]
