@@ -1,47 +1,45 @@
 extends RigidBody2D
 
-@onready var hitbox = $"Player/Speil_Hitbox"
 var speed := 500
-var has_hit := false
+var last_hit_time := 0.0
+var hit_delay := 0.2 # prevents multiple triggers per frame
 
 func _ready():
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
-
-	# Connect Area2D collision
 	$Area2D.area_entered.connect(_on_area_entered)
 
+
 func _on_area_entered(area):
-	if area.name == ("Speil_Hitbox"):
-	
-		$Timer.wait_time = 3
-		$Timer.start()
-		print("Hit detected!") # Debug
-		_Hit()
-
-
-func _Hit():
-	var rect = RectangleShape2D.new()
-	if has_hit:
+	# Prevent duplicate trigger if still colliding
+	if Time.get_ticks_msec() - last_hit_time < hit_delay * 1000:
 		return
 
-	#has_hit = true
+	last_hit_time = Time.get_ticks_msec()
 
-	# Change trajectory onceS
-	rotation += deg_to_rad(90)
+	if area.name == "Speil_Hitbox":
+		print("Hit Speil_Hitbox!")
+		_Hit(90)
+
+	elif area.name == "Speil_Hitbox2":
+		print("Hit Speil_Hitbox2!")
+		_Hit(180)
+	$Timer.start() # restart lifetime timer
+
+
+func _Hit(angle_change):
+	var rect = RectangleShape2D.new()
+
+	# Rotate physics direction
+	rotation += deg_to_rad(angle_change)
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
-	
-	
-	# Rotate sprite to match new direction
+
+	# Rotate sprite
 	$Sprite2D.rotation = rotation
+
+	# Update shape (optional)
 	rect.extents = Vector2(4,16)
 	$Area2D/CollisionShape2D.shape = rect
 
-	# Disable further collisionsS
-	$Area2D.disabled = true
 
-
-	
-
-
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	queue_free()
