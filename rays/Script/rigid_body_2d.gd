@@ -4,7 +4,6 @@ var speed := 300
 var has_hit := false
 
 func _ready():
-	look_at(get_global_mouse_position())
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 
 	# Connect Area2D collision
