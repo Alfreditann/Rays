@@ -33,5 +33,5 @@ func _input(event) -> void:
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		current_index -= 1
 		if current_index >= directions.size():
-			current_index = 3
+			current_index = -1
 	mirror.play(directions[current_index])
