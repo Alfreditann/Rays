@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-var speed := 300
+@onready var hitbox = $"Player/Speil_Hitbox"
+var speed := 500
 var has_hit := false
 
 func _ready():
@@ -19,22 +20,26 @@ func _on_area_entered(area):
 
 
 func _Hit():
+	var rect = RectangleShape2D.new()
 	if has_hit:
 		return
 
-	has_hit = true
+	#has_hit = true
 
-	# Change trajectory once
+	# Change trajectory onceS
 	rotation += deg_to_rad(90)
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
-
+	
+	
 	# Rotate sprite to match new direction
 	$Sprite2D.rotation = rotation
+	rect.extents = Vector2(4,16)
+	$Area2D/CollisionShape2D.shape = rect
 
-	# Disable further collisions
-	$Area2D.monitoring = false
-	$Area2D.monitorable = false
-	$Area2D/CollisionShape2D.set_disabled(true)
+	# Disable further collisionsS
+	$Area2D.disabled = true
+
+
 	
 
 

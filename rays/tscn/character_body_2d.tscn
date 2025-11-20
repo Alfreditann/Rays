@@ -18,8 +18,8 @@ script = ExtResource("1_ij6vw")
 texture = ExtResource("2_xm04k")
 script = ExtResource("3_ghijl")
 
-[node name="Timer" type="Timer" parent="Sprite2D"]
-autostart = true
+[node name="ShootCooldown" type="Timer" parent="Sprite2D"]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.5)
@@ -32,3 +32,5 @@ position = Vector2(1, -2)
 modulate = Color(0.1882353, 0, 0.023529412, 1)
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_xm04k")
+
+[connection signal="timeout" from="Sprite2D/ShootCooldown" to="Sprite2D" method="_on_shoot_cooldown_timeout"]
