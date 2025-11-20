@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 500
+var speed := 300
 var last_hit_time := 0.0
 var hit_delay := 0.2 # prevents multiple triggers per frame
 
@@ -36,7 +36,7 @@ func _Hit(angle_change):
 	# Rotate sprite
 	$Sprite2D.rotation = rotation
 
-	# Update shape (optional)
+	# Update shape 
 	rect.extents = Vector2(4,16)
 	$Area2D/CollisionShape2D.shape = rect
 
