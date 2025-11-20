@@ -10,10 +10,12 @@ func _ready():
 	$Area2D.area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area):
-	$Timer.wait_time = 3
-	$Timer.start()
-	print("Hit detected!") # Debug
-	_Hit()
+	if area.name == ("Speil_Hitbox"):
+	
+		$Timer.wait_time = 3
+		$Timer.start()
+		print("Hit detected!") # Debug
+		_Hit()
 
 
 func _Hit():
