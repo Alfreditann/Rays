@@ -27,15 +27,17 @@ func _process(delta: float) -> void:
 func _on_left_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_push_left = true
-	
+		print("Treff")
 func _on_left_detector_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_push_left = false
-	
+		print("Treff")
 func _on_right_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_push_right = true
+		print("treff")
 	
 func _on_right_detector_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_push_right = false
+		print("Treff")

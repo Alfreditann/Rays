@@ -4,15 +4,15 @@ var can_push_up = false
 var can_push_down = false
 
 func _integrate_forces(state) -> void:
-	var vel = state.linear_velocity
+	var v = state.linear_velocity
 	
 	#Allow push from sides
 	if can_push_up or can_push_down:
-		vel.x = 0
+		v.x = 0
 	else:
-		vel = Vector2.ZERO
+		v = Vector2.ZERO
 	
-	state.linear_velocity = vel
+	state.linear_velocity = v
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
