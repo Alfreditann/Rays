@@ -5,6 +5,8 @@ var pos = Vector2(1,0)
 var is_ready: bool =true
 
 
+@onready var tip: = $Tip
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -33,10 +35,7 @@ func _process(delta):
 			instance.look_at(self.position + pos)
 			instance.global_position = Vector2(global_position)
 			get_tree().current_scene.add_child(instance)
-			#$Timer.wait_time = 1
-			#$Timer.start()
-	#else:
-		#pass
+			
 	
 	
 	

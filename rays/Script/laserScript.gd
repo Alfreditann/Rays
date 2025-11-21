@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 500
+var speed := 600
 var last_hit_time := 0.0
 var hit_delay := 0.2 # prevents multiple triggers per frame
 
@@ -36,10 +36,15 @@ func _Hit(angle_change):
 	# Rotate sprite
 	$Sprite2D.rotation = rotation
 
-	# Update shape (optional)
+	# Update shape 
 	rect.extents = Vector2(4,16)
 	$Area2D/CollisionShape2D.shape = rect
 
 
 func _on_timer_timeout():
 	queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Hurtbox":
+		queue_free()

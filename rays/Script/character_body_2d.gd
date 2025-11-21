@@ -4,6 +4,8 @@ var currpos = [0,0]
 var speed = 200
 
 
+
+
 func _physics_process(delta: float) -> void:
 	var move_direction = Vector2.ZERO
 

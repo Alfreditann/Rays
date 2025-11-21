@@ -6,9 +6,10 @@
 size = Vector2(120, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yq8w"]
-size = Vector2(37.1875, 4.25)
+size = Vector2(37.1875, 3.1836452)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+z_index = -2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mg553")
@@ -20,8 +21,9 @@ shape = SubResource("RectangleShape2D_ftcnu")
 [node name="Speil_Hitbox2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox2"]
-position = Vector2(-18.40625, 20.875)
-rotation = -0.85346603
+position = Vector2(-17, 13.000001)
+rotation = -3.9043016
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_5yq8w")
 debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
 
