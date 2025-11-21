@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 300
+var speed := 600
 var last_hit_time := 0.0
 var hit_delay := 0.2 # prevents multiple triggers per frame
 
@@ -43,3 +43,8 @@ func _Hit(angle_change):
 
 func _on_timer_timeout():
 	queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Hurtbox":
+		queue_free()
