@@ -8,22 +8,22 @@ var currpos = [0,0]
 func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("move_rigth"):
-		currpos[0] += 128
+		currpos[0] += 32
 		#get_node("AnimatedSprite2D").
 		look_at(self.position + Vector2(0,0))
 		anim.play("Rigth")
 	elif Input.is_action_just_released("move_left"):
-		currpos[0] -= 128
+		currpos[0] -= 32
 		#get_node("AnimatedSprite2D").
 		look_at(self.position + Vector2(0,0))
 		anim.play("Left")
 	elif Input.is_action_just_released("move_up"):
-		currpos[1] -= 128
+		currpos[1] -= 32
 		#get_node("AnimatedSprite2D").
 		look_at(self.position + Vector2(0,0))
 		anim.play("Back")
 	elif Input.is_action_just_released("move_down"):
-		currpos[1] += 128
+		currpos[1] += 32
 		#get_node("AnimatedSprite2D").
 		look_at(self.position + Vector2(0,0))
 		anim.play("Front")
