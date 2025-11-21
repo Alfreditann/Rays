@@ -1,11 +1,8 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 var fireball = preload("res://tscn/rigid_body_2d.tscn")
 var pos = Vector2(1,0)
 var is_ready: bool =true
-
-
-@onready var tip: = $Tip
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,6 +36,9 @@ func _process(delta):
 	
 	
 	
+
+
+
 
 
 func _on_shoot_cooldown_timeout() -> void:

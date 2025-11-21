@@ -1,28 +1,78 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1tufnylu2iec"]
+[gd_scene load_steps=11 format=3 uid="uid://d1tufnylu2iec"]
 
 [ext_resource type="Script" uid="uid://b8a33vv8yrshm" path="res://Script/character_body_2d.gd" id="1_ij6vw"]
-[ext_resource type="Texture2D" uid="uid://qclr14jeop0l" path="res://Sprite sheet/icon.svg" id="2_xm04k"]
+[ext_resource type="Texture2D" uid="uid://h2bpmte1rr30" path="res://Sprites/Player Character(3).png" id="2_kymiw"]
 [ext_resource type="Script" uid="uid://dbiyind6un6i5" path="res://Script/skyte.gd" id="3_ghijl"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm04k"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox55n"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba70e"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh1p1"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1f8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm04k")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox55n")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba70e")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh1p1")
+}],
+"loop": true,
+"name": &"Rigth",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
-size = Vector2(116, 121)
+size = Vector2(29, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xm04k"]
-size = Vector2(118, 122)
+size = Vector2(29, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(-2, 0)
 script = ExtResource("1_ij6vw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xm04k")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c1f8i")
+animation = &"Front"
 script = ExtResource("3_ghijl")
 
-[node name="ShootCooldown" type="Timer" parent="Sprite2D"]
-one_shot = true
+[node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -0.5)
+position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_44cfe")
 
 [node name="Player" type="Area2D" parent="."]
@@ -30,7 +80,7 @@ position = Vector2(1, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 modulate = Color(0.1882353, 0, 0.023529412, 1)
-position = Vector2(2, 1)
+position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_xm04k")
 
-[connection signal="timeout" from="Sprite2D/ShootCooldown" to="Sprite2D" method="_on_shoot_cooldown_timeout"]
+[connection signal="timeout" from="AnimatedSprite2D/ShootCooldown" to="AnimatedSprite2D" method="_on_shoot_cooldown_timeout"]
