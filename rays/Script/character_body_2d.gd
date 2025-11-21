@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var currpos = [0,0]
-var speed = 200
+var speed = 300
 
 
 func _physics_process(delta: float) -> void:
@@ -28,5 +28,4 @@ func _physics_process(delta: float) -> void:
 		get_node("Sprite2D").look_at(self.position + Vector2(-1,0))
 	elif Input.is_action_just_released("ui_down"):
 		get_node("Sprite2D").look_at(self.position + Vector2(1,0))
-	
 	

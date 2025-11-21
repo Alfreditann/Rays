@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://wyrq3063vc85"]
+
+[ext_resource type="Texture2D" uid="uid://bv1r4tsbs70h0" path="res://Sprites/William.jpg" id="1_cdtp6"]
+[ext_resource type="Script" uid="uid://dbqxwywt5pjio" path="res://Script/moveble_speil.gd" id="1_t2db0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2db0"]
+size = Vector2(60.5, 64.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih3sn"]
+size = Vector2(37, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_122xs"]
+size = Vector2(38, 100)
+
+[node name="Moveble_Speil" type="RigidBody2D"]
+position = Vector2(502, 160)
+collision_layer = 2
+linear_damp = 100.0
+angular_damp = 100.0
+script = ExtResource("1_t2db0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.0000305, -1)
+scale = Vector2(0.18045114, 0.102368854)
+texture = ExtResource("1_cdtp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_t2db0")
+
+[node name="LeftDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetector"]
+position = Vector2(-43.5, -2)
+shape = SubResource("RectangleShape2D_ih3sn")
+debug_color = Color(0.8553477, 0.00078048825, 0.8885107, 0.41960785)
+
+[node name="RightDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
+position = Vector2(42, -1)
+shape = SubResource("RectangleShape2D_122xs")
+debug_color = Color(0.90315384, 0.14604887, 0.6681813, 0.41960785)
+
+[connection signal="body_entered" from="LeftDetector" to="." method="_on_left_detector_body_entered"]
+[connection signal="body_exited" from="LeftDetector" to="." method="_on_left_detector_body_exited"]
+[connection signal="body_entered" from="RightDetector" to="." method="_on_right_detector_body_entered"]
+[connection signal="body_exited" from="RightDetector" to="." method="_on_right_detector_body_exited"]
