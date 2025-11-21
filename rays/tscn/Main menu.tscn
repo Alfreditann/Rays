@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://11dwq1qqdrvg"]
+
+[sub_resource type="GDScript" id="GDScript_dddii"]
+script/source = "extends Node2D
+
+
+func _on_start_pressed() 
+	get_tree().change_scene_to_file()
+
+
+func _on_options_pressed() 
+		get_tree().change_scene_to_file()
+
+
+func _on_quit_pressed() 
+	get_tree().quit()
+"
+
+[node name="MainMenu" type="Node2D"]
+script = SubResource("GDScript_dddii")
+
+[node name="Button manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -337.0
+offset_top = 77.0
+offset_right = -65.0
+offset_bottom = 145.0
+
+[node name="start" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -26.0
+offset_right = 275.0
+offset_bottom = 62.0
+theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 16
+theme_override_constants/icon_max_width = 16
+theme_override_constants/align_to_largest_stylebox = 16
+theme_override_constants/line_spacing = 16
+text = "Start Game"
+
+[node name="options" type="Button" parent="Button manager/start"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 116.0
+offset_right = 234.0
+offset_bottom = 201.0
+text = "Options"
+
+[node name="quit" type="Button" parent="Button manager/start/options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = 80.0
+offset_right = 113.5
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="Button manager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button manager/start/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button manager/start/options/quit" to="." method="_on_quit_pressed"]
