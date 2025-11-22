@@ -3,62 +3,80 @@ extends CharacterBody2D
 var currpos = [0,0]
 @onready var anim = $AnimatedSprite2D
 
+@onready var mirror = get_parent().get_node("../Moveble_Speil2")
+
 var interactable_object: CharacterBody2D = null
 
 func _ready():
 	currpos = position
 
-func _physics_process(delta: float) -> void:
+func _process(delta):
 	handle_movement()
-	handle_interaction()
+	handle_mirror_push()
 	
 func handle_movement():
+	var target_pos = currpos
+	
 	if Input.is_action_just_released("move_rigth"):
-		currpos[0] += 32
-		#get_node("AnimatedSprite2D").
-		look_at(self.position + Vector2(0,0))
+		target_pos.x += 32
 		anim.play("Rigth")
 	elif Input.is_action_just_released("move_left"):
-		currpos[0] -= 32
-		#get_node("AnimatedSprite2D").
-		look_at(self.position + Vector2(0,0))
+		target_pos.x -= 32
 		anim.play("Left")
 	elif Input.is_action_just_released("move_up"):
-		currpos[1] -= 32
-		#get_node("AnimatedSprite2D").
-		look_at(self.position + Vector2(0,0))
+		target_pos.y -= 32
 		anim.play("Back")
 	elif Input.is_action_just_released("move_down"):
-		currpos[1] += 32
-		#get_node("AnimatedSprite2D").
-		look_at(self.position + Vector2(0,0))
+		target_pos.y += 32
 		anim.play("Front")
-	self.position = Vector2(currpos[0], currpos[1])
-	if Input.is_action_just_released("ui_right"):
-		get_node("AnimatedSprite2D").look_at(self.position + Vector2(0,-1))
-	elif Input.is_action_just_released("ui_left"):
-		get_node("AnimatedSprite2D").look_at(self.position + Vector2(0,1))
-	elif Input.is_action_just_released("ui_up"):
-		get_node("SprAnimatedSprite2D").look_at(self.position + Vector2(-1,0))
-	elif Input.is_action_just_released("ui_down"):
-		get_node("AnimatedSprite2D").look_at(self.position + Vector2(1,0))
+		
+	# Only move if no collision
+	if can_move_to(target_pos):
+		currpos = target_pos
+		position = currpos
+
+func can_move_to(target_pos: Vector2) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = target_pos
+	query.collide_with_bodies = true
+	query.exclude = [self]
 	
-func handle_interaction():
-	if Input.is_action_just_pressed("interact") and interactable_object:
-		var direction = (interactable_object.global_position - global_position).normalized()
-		
-		if abs(direction.x) > abs(direction.y):
-			direction = Vector2(sign(direction.x), 0)
-		else:
-			direction = Vector2(0, sign(direction.y))
-			
-		interactable_object.push(direction)
-		
-func _on_player_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Interactable"):
-		interactable_object = body
+	var result = space_state.intersect_point(query)
+	return result.empty()
+	
+func handle_mirror_push():
+	if Input.is_action_just_pressed("interact"):
+		# Push mirror right by default
+		mirror.push(Vector2(1,0))
 
-
-func _on_player_body_exited(body: Node2D) -> void:
-	if body == interactable_object:
-		interactable_object = null
+#func _physics_process(delta: float) -> void:
+	#if Input.is_action_just_released("move_rigth"):
+		#currpos[0] += 32
+		##get_node("AnimatedSprite2D").
+		#look_at(self.position + Vector2(0,0))
+		#anim.play("Rigth")
+	#elif Input.is_action_just_released("move_left"):
+		#currpos[0] -= 32
+		##get_node("AnimatedSprite2D").
+		#look_at(self.position + Vector2(0,0))
+		#anim.play("Left")
+	#elif Input.is_action_just_released("move_up"):
+		#currpos[1] -= 32
+		##get_node("AnimatedSprite2D").
+		#look_at(self.position + Vector2(0,0))
+		#anim.play("Back")
+	#elif Input.is_action_just_released("move_down"):
+		#currpos[1] += 32
+		##get_node("AnimatedSprite2D").
+		#look_at(self.position + Vector2(0,0))
+		#anim.play("Front")
+	#self.position = Vector2(currpos[0], currpos[1])
+	#if Input.is_action_just_released("ui_right"):
+		#get_node("AnimatedSprite2D").look_at(self.position + Vector2(0,-1))
+	#elif Input.is_action_just_released("ui_left"):
+		#get_node("AnimatedSprite2D").look_at(self.position + Vector2(0,1))
+	#elif Input.is_action_just_released("ui_up"):
+		#get_node("SprAnimatedSprite2D").look_at(self.position + Vector2(-1,0))
+	#elif Input.is_action_just_released("ui_down"):
+		#get_node("AnimatedSprite2D").look_at(self.position + Vector2(1,0))

@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="2_t2q3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2q3u"]
-size = Vector2(173, 260)
+size = Vector2(47, 59)
 
 [node name="Moveble__Speil2" type="CharacterBody2D"]
 position = Vector2(513, 230)
 script = ExtResource("1_t2q3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-30.625, -47.625)
+position = Vector2(-93.9584, 54.1955)
 rotation = 1.5708
-scale = Vector2(8.11364, 5.42046)
+scale = Vector2(1.74985, 1.46212)
 texture = ExtResource("2_t2q3u")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-30.5, -47)
+position = Vector2(-93.5, 54.5)
 shape = SubResource("RectangleShape2D_t2q3u")
