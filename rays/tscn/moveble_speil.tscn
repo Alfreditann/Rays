@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://wyrq3063vc85"]
 
 [ext_resource type="Texture2D" uid="uid://bv1r4tsbs70h0" path="res://Sprites/William.jpg" id="1_cdtp6"]
-[ext_resource type="Script" uid="uid://dbqxwywt5pjio" path="res://Script/moveble_speil.gd" id="1_t2db0"]
+[ext_resource type="Script" path="res://Script/moveble_speil.gd" id="1_t2db0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2db0"]
 size = Vector2(19.5, 26.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ih3sn"]
-size = Vector2(10, 47)
+size = Vector2(17, 36.7523)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_122xs"]
-size = Vector2(8.25, 43)
+size = Vector2(17.14, 50.6445)
 
 [node name="Moveble_Speil" type="RigidBody2D"]
 position = Vector2(502, 160)
@@ -19,29 +19,34 @@ linear_damp = 100.0
 angular_damp = 100.0
 script = ExtResource("1_t2db0")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.75, 0.5)
+scale = Vector2(0.0578947, 0.0448392)
+texture = ExtResource("1_cdtp6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_t2db0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.7500038, 0.5000076)
-scale = Vector2(0.057894703, 0.044839244)
-texture = ExtResource("1_cdtp6")
-
 [node name="LeftDetector" type="Area2D" parent="."]
+position = Vector2(-28, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDetector"]
-position = Vector2(-15, 0.5)
+position = Vector2(1, 0)
+scale = Vector2(0.99949, 1.19721)
 shape = SubResource("RectangleShape2D_ih3sn")
-debug_color = Color(0.8553477, 0.00078048825, 0.8885107, 0.41960785)
+debug_color = Color(0.855348, 0.000780488, 0.888511, 0.419608)
 
 [node name="RightDetector" type="Area2D" parent="."]
+position = Vector2(20, 2)
+scale = Vector2(1.00029, 0.888547)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
-position = Vector2(16, -0.5)
+position = Vector2(1.00031, -0.562714)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_122xs")
-debug_color = Color(0.90315384, 0.14604887, 0.6681813, 0.41960785)
+debug_color = Color(0.903154, 0.146049, 0.668181, 0.419608)
 
 [connection signal="body_entered" from="LeftDetector" to="." method="_on_left_detector_body_entered"]
 [connection signal="body_exited" from="LeftDetector" to="." method="_on_left_detector_body_exited"]

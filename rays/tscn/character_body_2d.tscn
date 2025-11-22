@@ -62,11 +62,12 @@ size = Vector2(29, 35)
 size = Vector2(29, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 6
 script = ExtResource("1_ij6vw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c1f8i")
-animation = &"Front"
+animation = &"Rigth"
 script = ExtResource("3_ghijl")
 
 [node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
@@ -75,12 +76,15 @@ script = ExtResource("3_ghijl")
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_44cfe")
 
-[node name="Player" type="Area2D" parent="."]
+[node name="Player" type="Area2D" parent="." groups=["player"]]
 position = Vector2(1, -2)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-modulate = Color(0.1882353, 0, 0.023529412, 1)
+modulate = Color(0.188235, 0, 0.0235294, 1)
 position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_xm04k")
 
 [connection signal="timeout" from="AnimatedSprite2D/ShootCooldown" to="AnimatedSprite2D" method="_on_shoot_cooldown_timeout"]
+[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="Player" to="." method="_on_player_body_exited"]

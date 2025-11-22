@@ -1,50 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://brg7mf0eq1i40"]
+[gd_scene load_steps=4 format=3 uid="uid://brg7mf0eq1i40"]
 
-[ext_resource type="Script" uid="uid://c8rvu04afwcps" path="res://Script/moveble__speil_2.gd" id="1_t2q3u"]
-[ext_resource type="Texture2D" uid="uid://bg3m1m8dg0bcc" path="res://Sprites/gem stor + liten.png" id="2_ob68n"]
+[ext_resource type="Script" uid="uid://b5lkky6l16jox" path="res://tscn/moveble__speil_2.gd" id="1_t2q3u"]
+[ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="2_t2q3u"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y4m4"]
-radius = 37.0
-height = 130.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2q3u"]
+size = Vector2(173, 260)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_771rc"]
-size = Vector2(93, 20.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_drg1y"]
-size = Vector2(98, 21)
-
-[node name="Moveble__Speil2" type="RigidBody2D"]
+[node name="Moveble__Speil2" type="CharacterBody2D"]
 position = Vector2(513, 230)
 script = ExtResource("1_t2q3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-30.625008, -47.624992)
-rotation = 1.5707964
-scale = Vector2(8.113636, 5.4204555)
-texture = ExtResource("2_ob68n")
+position = Vector2(-30.625, -47.625)
+rotation = 1.5708
+scale = Vector2(8.11364, 5.42046)
+texture = ExtResource("2_t2q3u")
 region_enabled = true
-region_rect = Rect2(10, 5, 11, 22)
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-31, -46)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_0y4m4")
-
-[node name="UpDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpDetector"]
-position = Vector2(-35.5, -80.25)
-shape = SubResource("RectangleShape2D_771rc")
-debug_color = Color(0.81887394, 0.22210583, 0.8313647, 0.41960785)
-
-[node name="DownDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DownDetector"]
-position = Vector2(-33, -17.5)
-shape = SubResource("RectangleShape2D_drg1y")
-debug_color = Color(0.6564127, 0.37016082, 0.9120267, 0.41960785)
-
-[connection signal="body_entered" from="UpDetector" to="." method="_on_up_detector_body_entered"]
-[connection signal="body_exited" from="UpDetector" to="." method="_on_up_detector_body_exited"]
-[connection signal="body_entered" from="DownDetector" to="." method="_on_down_detector_body_entered"]
-[connection signal="body_exited" from="DownDetector" to="." method="_on_down_detector_body_exited"]
+position = Vector2(-30.5, -47)
+shape = SubResource("RectangleShape2D_t2q3u")
