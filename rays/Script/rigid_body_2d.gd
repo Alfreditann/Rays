@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 300
+var speed := 500
 var has_hit := false
 
 func _ready():
@@ -10,10 +10,18 @@ func _ready():
 	$Area2D.area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area):
+	var hit_object = area.get_parent()
+	
+	if hit_object.name == "Bot":
+		hit_object.queue_free()
+		queue_free()
+		return
+	
 	$Timer.wait_time = 3
 	$Timer.start()
 	print("Hit detected!") # Debug
 	_Hit()
+	
 
 
 func _Hit():
