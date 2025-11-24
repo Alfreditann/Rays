@@ -3,9 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b6u4tl1k2ra5o" path="res://tscn/speil.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yw7wdk48a4g6" path="res://tscn/speil2.tscn" id="3_8wxc5"]
-[ext_resource type="PackedScene" uid="uid://c8bp7yjd6idsh" path="res://tscn/rigid_body_2d.tscn" id="4_a7rub"]
-[ext_resource type="PackedScene" uid="uid://d2ays7mk3hq6y" path="res://tscn/move_speil.tscn" id="5_g6ans"]
-[ext_resource type="PackedScene" uid="uid://bs3s0fpe8o7hc" path="res://tscn/wall.tscn" id="6_8kplt"]
+[ext_resource type="PackedScene" uid="uid://d307mu8lqt224" path="res://tscn/speil3.tscn" id="4_a7rub"]
+[ext_resource type="PackedScene" uid="uid://bpq7lonic7k0c" path="res://speil4.tscn" id="5_g6ans"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,13 +16,10 @@ position = Vector2(996, 100)
 script = null
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_8wxc5")]
-position = Vector2(977, 498)
+position = Vector2(977, 412)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("4_a7rub")]
-position = Vector2(235, 89)
+[node name="StaticBody2D3" parent="." instance=ExtResource("4_a7rub")]
+position = Vector2(485, 413)
 
-[node name="Move_Speil" parent="." instance=ExtResource("5_g6ans")]
-position = Vector2(602, 235)
-
-[node name="Wall" parent="." instance=ExtResource("6_8kplt")]
-position = Vector2(186, 10)
+[node name="StaticBody2D4" parent="." instance=ExtResource("5_g6ans")]
+position = Vector2(490, 85)

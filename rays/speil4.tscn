@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpq7lonic7k0c"]
+
+[ext_resource type="Script" uid="uid://b7qefpley7bq2" path="res://speil_4.gd" id="1_8nxhx"]
+[ext_resource type="Texture2D" uid="uid://bsklpf7fe5mr6" path="res://Sprites/icon.svg" id="1_pl10n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nxhx"]
+size = Vector2(120, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hir5"]
+size = Vector2(37.1875, 3.1836452)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_8nxhx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pl10n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_8nxhx")
+
+[node name="Speil_Hitbox4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox4"]
+position = Vector2(30.000002, 30.999996)
+rotation = -4.0264745
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_4hir5")
+debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(60, 0, 2, 0, 0, -63, 59, -61, 28, -31, -1, 0, 0, 60, -57, 58, -58, 0, -59, -5, -58, -61, 0, -62, 59, -61)

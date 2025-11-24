@@ -1,8 +1,22 @@
 extends CharacterBody2D
 
-var currpos = [0,0]
-@onready var anim = $AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var raycast: RayCast2D = $RayCast2D
 
+var is_moving: bool = false
+var move_dir: Vector2 = Vector2.ZERO
+var move_distance: float
+var target_position: Vector2
+
+
+func _ready():
+	# Get sprite width/height (character size)
+	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, 0).get_size().x
+	target_position = position
+
+
+func update_raycast():
+	raycast.target_position = move_dir * 40
 
 var tile_size := 32
 var move_direction := Vector2.ZERO
