@@ -83,4 +83,7 @@ modulate = Color(0.1882353, 0, 0.023529412, 1)
 position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_xm04k")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(75, 0)
+
 [connection signal="timeout" from="AnimatedSprite2D/ShootCooldown" to="AnimatedSprite2D" method="_on_shoot_cooldown_timeout"]
