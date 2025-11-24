@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://wyrq3063vc85"]
 
 [ext_resource type="Texture2D" uid="uid://bv1r4tsbs70h0" path="res://Sprites/William.jpg" id="1_cdtp6"]
-[ext_resource type="Script" path="res://Script/moveble_speil.gd" id="1_t2db0"]
+[ext_resource type="Script" uid="uid://dbqxwywt5pjio" path="res://Script/moveble_speil.gd" id="1_t2db0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2db0"]
 size = Vector2(19.5, 26.5)
@@ -44,7 +44,6 @@ scale = Vector2(1.00029, 0.888547)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightDetector"]
 position = Vector2(1.00031, -0.562714)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_122xs")
 debug_color = Color(0.903154, 0.146049, 0.668181, 0.419608)
 

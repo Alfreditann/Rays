@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ays7mk3hq6y"]
+
+[ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="1_n855b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2lqa"]
+size = Vector2(29, 49)
+
+[node name="Move_Speil" type="RigidBody2D"]
+linear_damp = 20.0
+angular_damp = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.4999993, -26.999998)
+scale = Vector2(0.96875006, 1.5624999)
+texture = ExtResource("1_n855b")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -27.5)
+shape = SubResource("RectangleShape2D_g2lqa")

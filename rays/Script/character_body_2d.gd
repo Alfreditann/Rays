@@ -3,55 +3,62 @@ extends CharacterBody2D
 var currpos = [0,0]
 @onready var anim = $AnimatedSprite2D
 
-@onready var mirror = get_parent().get_node("../Moveble_Speil2")
 
-var interactable_object: CharacterBody2D = null
+var tile_size := 32
+var move_direction := Vector2.ZERO
+var target_position := Vector2.ZERO
+var moving := false
 
 func _ready():
-	currpos = position
+	target_position = global_position
 
-func _process(delta):
-	handle_movement()
-	handle_mirror_push()
+func _physics_process(delta: float) -> void:
+	handle_input()
+	move_grid(delta)
+	push_rigidbody_objects()
 	
-func handle_movement():
-	var target_pos = currpos
-	
-	if Input.is_action_just_released("move_rigth"):
-		target_pos.x += 32
+func handle_input():
+	if moving:
+		return
+	if Input.is_action_pressed("move_rigth"):
+		move_direction = Vector2.RIGHT
 		anim.play("Rigth")
-	elif Input.is_action_just_released("move_left"):
-		target_pos.x -= 32
+	elif Input.is_action_pressed("move_left"):
+		move_direction = Vector2.LEFT
 		anim.play("Left")
-	elif Input.is_action_just_released("move_up"):
-		target_pos.y -= 32
+	elif Input.is_action_pressed("move_up"):
+		move_direction = Vector2.UP
 		anim.play("Back")
-	elif Input.is_action_just_released("move_down"):
-		target_pos.y += 32
+	elif Input.is_action_pressed("move_down"):
+		move_direction = Vector2.DOWN
 		anim.play("Front")
+	else:
+		return
 		
-	# Only move if no collision
-	if can_move_to(target_pos):
-		currpos = target_pos
-		position = currpos
+	target_position = global_position + move_direction * tile_size
+	moving = true
 
-func can_move_to(target_pos: Vector2) -> bool:
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = target_pos
-	query.collide_with_bodies = true
-	query.exclude = [self]
-	
-	var result = space_state.intersect_point(query)
-	return result.empty()
-	
-func handle_mirror_push():
-	if Input.is_action_just_pressed("interact"):
-		# Push mirror right by default
-		mirror.push(Vector2(1,0))
-
-#func _physics_process(delta: float) -> void:
-	#if Input.is_action_just_released("move_rigth"):
+func move_grid(delta):
+	if not moving:
+		return
+	#Smooth movment
+	global_position = global_position.move_toward(target_position, 200 * delta)
+		#Reached destination
+	if global_position == target_position:
+		moving = false
+		
+func push_rigidbody_objects():
+	if not moving:
+		return
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		
+		if body is RigidBody2D:
+			var  push_force := 20.0
+			body.apply_impulse(move_direction * push_force)
+		#if Input.is_action_just_released("move_rigth"):
 		#currpos[0] += 32
 		##get_node("AnimatedSprite2D").
 		#look_at(self.position + Vector2(0,0))
