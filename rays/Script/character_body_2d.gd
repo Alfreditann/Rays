@@ -33,19 +33,19 @@ func _physics_process(delta: float) -> void:
 
 
 	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
-	if Input.is_action_just_pressed("move_rigth") or Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_pressed("move_rigth") or Input.is_action_just_pressed("ui_right"):
 		move_dir = Vector2.RIGHT
 		anim.play("Rigth")
 
-	elif Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left") or Input.is_action_just_pressed("ui_left"):
 		move_dir = Vector2.LEFT
 		anim.play("Left")
 
-	elif Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_pressed("move_up") or Input.is_action_just_pressed("ui_up"):
 		move_dir = Vector2.UP
 		anim.play("Back")
 
-	elif Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_pressed("move_down") or Input.is_action_just_pressed("ui_down"):
 		move_dir = Vector2.DOWN
 		anim.play("Front")
 	else:

@@ -1,20 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkoij8pmnxp6a"]
+[gd_scene load_steps=6 format=3 uid="uid://dkoij8pmnxp6a"]
 
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b6u4tl1k2ra5o" path="res://tscn/speil.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yw7wdk48a4g6" path="res://tscn/speil2.tscn" id="3_8wxc5"]
+[ext_resource type="PackedScene" uid="uid://d307mu8lqt224" path="res://tscn/speil3.tscn" id="4_a7rub"]
+[ext_resource type="PackedScene" uid="uid://bpq7lonic7k0c" path="res://speil4.tscn" id="5_g6ans"]
 
 [node name="Main" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(686, 284)
+position = Vector2(681, 110)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1036, 98)
 
-[node name="Bot" parent="." instance=ExtResource("3_8wxc5")]
-position = Vector2(397, 291)
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_8wxc5")]
+position = Vector2(977, 412)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(875, 324)
-zoom = Vector2(0.5, 0.5)
+[node name="StaticBody2D3" parent="." instance=ExtResource("4_a7rub")]
+position = Vector2(485, 413)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("5_g6ans")]
+position = Vector2(490, 85)
