@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_rigth") or Input.is_action_just_pressed("ui_right"):
 		move_dir = Vector2.RIGHT
 		anim.play("Rigth")
+		
+		
 
 	elif Input.is_action_pressed("move_left") or Input.is_action_just_pressed("ui_left"):
 		move_dir = Vector2.LEFT
