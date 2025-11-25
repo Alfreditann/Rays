@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://f5f0cra4vv3c"]
+[gd_scene load_steps=14 format=3 uid="uid://f5f0cra4vv3c"]
 
 [ext_resource type="Script" uid="uid://bjbdpm2kmjtml" path="res://Script/Changing_Mirror.gd" id="1_eb2hk"]
 [ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="2_0tod6"]
 [ext_resource type="Script" uid="uid://cy70asebt7toc" path="res://Script/kill_box.gd" id="3_8dw2w"]
-[ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="5_paybu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syq6g"]
 atlas = ExtResource("2_0tod6")
@@ -111,9 +110,6 @@ position = Vector2(-1, 4)
 position = Vector2(593, 331)
 shape = SubResource("RectangleShape2D_paybu")
 
-[node name="Player" parent="." instance=ExtResource("5_paybu")]
-position = Vector2(297, 268)
-
 [node name="Speil_Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
@@ -126,3 +122,4 @@ debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
 [connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
 [connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]
 [connection signal="area_entered" from="Killbox" to="Killbox" method="_on_area_entered"]
+[connection signal="area_entered" from="Speil_Hitbox" to="." method="_on_speil_hitbox_area_entered"]

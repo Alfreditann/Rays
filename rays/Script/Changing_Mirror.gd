@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @onready var mirror: AnimatedSprite2D = $Mirror
 @onready var activate_radius: Area2D = $Activate_Radius
+@onready var get_speil = $Speil_Hitbox
 
 var directions = ["first mirror", "second mirror", "third mirror", "fourth mirror"]
 var current_index = 0
@@ -11,7 +12,6 @@ var directionCounter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process_input(false)
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -33,6 +33,7 @@ func _input(event) -> void:
 			current_index = (current_index + 1) % directions.size()
 			var node = get_node("Speil_Hitbox")
 			node.position = testdDirection[directionCounter]
+			get_speil.name = "Speil_Hitbox2"
 			directionCounter += 1
 			if directionCounter == 4:
 				directionCounter = 0 
@@ -40,3 +41,10 @@ func _input(event) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			current_index = (current_index - 1) %  directions.size()
 	mirror.play(directions[current_index])
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	emit_signal("speilHit")
+	
+
+		

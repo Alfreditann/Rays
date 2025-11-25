@@ -10,27 +10,32 @@ func _ready():
 
 
 func _on_area_entered(area):
+	
 	# Prevent duplicate trigger if still colliding
 	if Time.get_ticks_msec() - last_hit_time < hit_delay * 1000:
 		return
 
-	last_hit_time = Time.get_ticks_msec()
-
+	
+	print(area.name)
 	if area.name == "Speil_Hitbox":
 		print("Hit Speil_Hitbox!")
 		rect_shape1 = 1
 		_Hit(90)
+		last_hit_time = Time.get_ticks_msec()
 
 	elif area.name == "Speil_Hitbox2":
 		print("Hit Speil_Hitbox2!")
 		rect_shape1 = 2
 		_Hit(180)
+		last_hit_time = Time.get_ticks_msec()
 	elif area.name == "Speil_Hitbox3":
 		rect_shape1 = 3
 		_Hit(-90)  
+		last_hit_time = Time.get_ticks_msec()
 	elif area.name == "Speil_Hitbox4":
 		rect_shape1= 4
 		_Hit(0)
+		last_hit_time = Time.get_ticks_msec()
 		
 
 	$Timer.start() # restart lifetime timer
@@ -67,3 +72,4 @@ func _on_timer_timeout():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		queue_free()
+	
