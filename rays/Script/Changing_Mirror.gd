@@ -12,6 +12,7 @@ var directionCounter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process_input(false)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -31,15 +32,13 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			current_index = (current_index + 1) % directions.size()
-			var node = get_node("Speil_Hitbox")
-			node.position = testdDirection[directionCounter]
-			get_speil.name = "Speil_Hitbox2"
-			directionCounter += 1
-			if directionCounter == 4:
-				directionCounter = 0 
-				
+			
+			# Move collision shape, NOT the node
+			$Speil_Hitbox.rotation_degrees = current_index * 90
+
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			current_index = (current_index - 1) %  directions.size()
+			current_index = (current_index - 1) % directions.size()
+
 	mirror.play(directions[current_index])
 
 
