@@ -10,6 +10,7 @@ var target_position: Vector2
 
 var tile_size := 32
 var moving := false
+var speed := 200.0 # pixels per second
 
 func _ready():
 	# Get sprite width/height (character size)
@@ -52,39 +53,38 @@ func handle_input():
 func move_grid(delta):
 	if not moving:
 		return
-
 	var delta_vec = target_position - global_position
-	var max_distance = 200 * delta
 	var motion = delta_vec
-	if delta_vec.length() > max_distance:
-		motion = delta_vec.normalized() * max_distance
+	if delta_vec.length() > speed * delta:
+		motion = delta_vec.normalized() * speed * delta
 
-	var collision = move_and_collide(motion)
-	if collision:
-		var body = collision.get_collider()
-		if body is RigidBody2D:
-			# Attempt to move the rigidbody one tile in the push direction
-			var push_target = body.global_position + move_direction * tile_size
+		var collision = move_and_collide(motion)
+		if collision:
+			var body = collision.get_collider()
+			if body is RigidBody2D:
+		# Only allow horizontal pushes
+				if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
+					var player_pos = global_position
+					var block_pos = body.global_position
+			# Only push if player is on the side
+					if (move_direction == Vector2.RIGHT and player_pos.x < block_pos.x) or \
+					(move_direction == Vector2.LEFT and player_pos.x > block_pos.x):
+						var push_target = block_pos + Vector2(move_direction.x * tile_size, 0)
+				# Check if space is free
+						var space_state = get_world_2d().direct_space_state
+						var point_query = PhysicsPointQueryParameters2D.new()
+						point_query.position = push_target
+						point_query.collide_with_bodies = true
+						point_query.collide_with_areas = false
+						var result = space_state.intersect_point(point_query)
+						if result.size() == 0:
+							body.global_position = push_target
 
-			# Check if the push target is free
-			# Check if the push target is free using PhysicsPointQueryParameters2D
-			var space_state = get_world_2d().direct_space_state
-			var point_query = PhysicsPointQueryParameters2D.new()
-			point_query.position = push_target
-			point_query.collide_with_bodies = true
-			point_query.collide_with_areas = false
+	# Stop player movement if blocked
+	moving = false
+	target_position = global_position
+	return
 
-			var result = space_state.intersect_point(point_query)
-			if result.size() == 0:
-				# Move the rigid body one tile
-				body.global_position = push_target
-
-		# Stop movement if blocked by wall or object
-		moving = false
-		target_position = global_position
-		return
-
-	# Check if we've reached the target tile
 	if global_position.distance_to(target_position) < 0.1:
 		global_position = target_position
 		moving = false
@@ -102,15 +102,13 @@ func move_grid(delta):
 func push_rigidbody_objects():
 	if not moving:
 		return
-		
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var body = collision.get_collider()
-		
-		if body is RigidBody2D:
-			var  push_force := 20.0
-			body.apply_impulse(move_direction * push_force)
-			
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var body = collision.get_collider()
+			if body is RigidBody2D:
+		# Only horizontal pushes
+				if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
+					body.apply_impulse(Vector2.ZERO, Vector2(move_direction.x * 20, 0))
 			
 			
 			
