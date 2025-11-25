@@ -1,31 +1,35 @@
-[gd_scene load_steps=14 format=3 uid="uid://f5f0cra4vv3c"]
+[gd_scene load_steps=15 format=3 uid="uid://f5f0cra4vv3c"]
 
 [ext_resource type="Script" uid="uid://bjbdpm2kmjtml" path="res://Script/Changing_Mirror.gd" id="1_eb2hk"]
-[ext_resource type="Texture2D" uid="uid://bjjajqpualgwk" path="res://Sprite sheet/NEWSPRITESHEET.png" id="2_0tod6"]
+[ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="2_eb2hk"]
 [ext_resource type="Script" uid="uid://cy70asebt7toc" path="res://Script/kill_box.gd" id="3_8dw2w"]
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="5_paybu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_syq6g"]
-atlas = ExtResource("2_0tod6")
-region = Rect2(338, 0, 26, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb2hk"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3css"]
-atlas = ExtResource("2_0tod6")
-region = Rect2(196, 256, 28, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_paybu"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nlyqy"]
-atlas = ExtResource("2_0tod6")
-region = Rect2(338, 32, 26, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng4u"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tod6"]
-atlas = ExtResource("2_0tod6")
-region = Rect2(338, 64, 26, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f237s"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd08o"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f5i7f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_syq6g")
+"texture": SubResource("AtlasTexture_eb2hk")
 }],
 "loop": true,
 "name": &"first mirror",
@@ -33,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o3css")
+"texture": SubResource("AtlasTexture_paybu")
 }],
 "loop": true,
 "name": &"fourth mirror",
@@ -41,7 +45,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nlyqy")
+"texture": SubResource("AtlasTexture_fng4u")
+}],
+"loop": true,
+"name": &"mirror five",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f237s")
 }],
 "loop": true,
 "name": &"second mirror",
@@ -49,7 +61,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0tod6")
+"texture": SubResource("AtlasTexture_wd08o")
 }],
 "loop": true,
 "name": &"third mirror",

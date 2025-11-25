@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var mirror: AnimatedSprite2D = $Mirror
 @onready var activate_radius: Area2D = $Activate_Radius
 
-var directions = ["first mirror", "second mirror", "third mirror", "fourth mirror"]
+var directions = ["first mirror", "second mirror", "third mirror", "fourth mirror", "mirror five"]
 var current_index = 0
 
 # Called when the node enters the scene tree for the first time.
