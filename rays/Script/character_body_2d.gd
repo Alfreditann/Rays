@@ -4,27 +4,24 @@ extends CharacterBody2D
 @onready var raycast: RayCast2D = $RayCast2D
 
 var is_moving: bool = false
-var move_dir: Vector2 = Vector2.ZERO
+var move_direction: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
 
+var tile_size := 32
+var moving := false
 
 func _ready():
 	# Get sprite width/height (character size)
 	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, 0).get_size().x
 	target_position = position
+	target_position = global_position
 
 
 func update_raycast():
-	raycast.target_position = move_dir * 40
+	raycast.target_position = move_direction * 40
 
-var tile_size := 32
-var move_direction := Vector2.ZERO
-var target_position := Vector2.ZERO
-var moving := false
 
-func _ready():
-	target_position = global_position
 
 func _physics_process(delta: float) -> void:
 	handle_input()
