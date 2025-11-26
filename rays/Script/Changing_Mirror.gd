@@ -7,7 +7,7 @@ extends StaticBody2D
 var directions = ["first mirror", "second mirror", "third mirror", "fourth mirror", "mirror five"]
 var current_index = 0
 
-var testdDirection =[Vector2(32,0),Vector2(32,32),Vector2(0,32),Vector2(0,0)]
+var testdDirection =[Vector2(32,0),Vector2(32,32),Vector2(0,32),Vector2(0,0), Vector2(32,16)]
 var directionCounter = 0
 
 func _ready() -> void:
