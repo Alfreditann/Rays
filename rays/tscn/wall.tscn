@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs3s0fpe8o7hc"]
+
+[ext_resource type="Texture2D" uid="uid://47ifhvbpgtow" path="res://Sprites/fireball(3).png" id="1_xt27s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fghf"]
+size = Vector2(827, 20)
+
+[node name="Wall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(395.25, 0)
+scale = Vector2(24.954546, 1)
+texture = ExtResource("1_xt27s")
+region_enabled = true
+region_rect = Rect2(0, 43, 33, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(396.5, 0)
+shape = SubResource("RectangleShape2D_7fghf")
