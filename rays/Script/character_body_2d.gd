@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var raycast: RayCast2D = $RayCast2D
 
 var is_moving: bool = false
-var move_direction: Vector2 = Vector2.ZERO
+
 var move_distance: float
 var target_position: Vector2
 
@@ -20,7 +20,7 @@ func _ready():
 
 
 func update_raycast():
-	raycast.target_position = move_direction * 40
+	raycast.target_position = global.move_direction * 40
 
 
 
@@ -33,21 +33,25 @@ func handle_input():
 	if moving:
 		return
 	if Input.is_action_pressed("move_rigth"):
-		move_direction = Vector2.RIGHT
+		global.move_direction = Vector2.RIGHT
+		global.direction = "right"
 		anim.play("Rigth")
 	elif Input.is_action_pressed("move_left"):
-		move_direction = Vector2.LEFT
+		global.direction = "left"
+		global.move_direction = Vector2.LEFT
 		anim.play("Left")
 	elif Input.is_action_pressed("move_up"):
-		move_direction = Vector2.UP
+		global.direction = "up"
+		global.move_direction = Vector2.UP
 		anim.play("Back")
 	elif Input.is_action_pressed("move_down"):
-		move_direction = Vector2.DOWN
+		global.direction = "down"
+		global.move_direction = Vector2.DOWN
 		anim.play("Front")
 	else:
 		return
 		
-	target_position = global_position + move_direction * tile_size
+	target_position = global_position + global.move_direction * tile_size
 	moving = true
 
 func move_grid(delta):
@@ -63,13 +67,13 @@ func move_grid(delta):
 			var body = collision.get_collider()
 			if body is RigidBody2D:
 		# Only allow horizontal pushes
-				if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
+				if global.move_direction == Vector2.LEFT or global.move_direction == Vector2.RIGHT:
 					var player_pos = global_position
 					var block_pos = body.global_position
 			# Only push if player is on the side
-					if (move_direction == Vector2.RIGHT and player_pos.x < block_pos.x) or \
-					(move_direction == Vector2.LEFT and player_pos.x > block_pos.x):
-						var push_target = block_pos + Vector2(move_direction.x * tile_size, 0)
+					if (global.move_direction == Vector2.RIGHT and player_pos.x < block_pos.x) or \
+					(global.move_direction == Vector2.LEFT and player_pos.x > block_pos.x):
+						var push_target = block_pos + Vector2(global.move_direction.x * tile_size, 0)
 				# Check if space is free
 						var space_state = get_world_2d().direct_space_state
 						var point_query = PhysicsPointQueryParameters2D.new()
@@ -107,8 +111,8 @@ func push_rigidbody_objects():
 			var body = collision.get_collider()
 			if body is RigidBody2D:
 		# Only horizontal pushes
-				if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
-					body.apply_impulse(Vector2.ZERO, Vector2(move_direction.x * 20, 0))
+				if global.move_direction == Vector2.LEFT or global.move_direction == Vector2.RIGHT:
+					body.apply_impulse(Vector2.ZERO, Vector2(global.move_direction.x * 20, 0))
 			
 			
 			

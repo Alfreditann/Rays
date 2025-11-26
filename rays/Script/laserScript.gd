@@ -20,7 +20,11 @@ func _on_area_entered(area):
 	if area.name == "Speil_Hitbox":
 		print("Hit Speil_Hitbox!")
 		rect_shape1 = 1
-		_Hit(90)
+		
+		if global.direction == "right":
+			_Hit(90)
+		elif global.direction == "up":
+			_Hit(180)
 		last_hit_time = Time.get_ticks_msec()
 
 	elif area.name == "Speil_Hitbox2":
@@ -52,6 +56,8 @@ func _Hit(angle_change):
 
 	# Rotate sprite visually
 	$Sprite2D.rotation = rotation
+	
+	
 
 	# Update hitbox shape
 	if rect_shape1 == 1:
