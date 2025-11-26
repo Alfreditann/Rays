@@ -29,7 +29,9 @@ func _input(event) -> void:
 		return
 
 	if event is InputEventMouseButton and event.pressed:
+		print("hei")
 		if event.button_index == MOUSE_BUTTON_LEFT:
+
 			current_index = (current_index + 1) % directions.size()
 
 			if get_speil.name == "Speil_Hitbox":
