@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2ays7mk3hq6y"]
 
 [ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="1_n855b"]
-[ext_resource type="Script" uid="uid://c3m4phvd4c6n6" path="res://script/move_speil.gd" id="1_ta34w"]
+[ext_resource type="Script" uid="uid://c3m4phvd4c6n6" path="res://Script/move_speil.gd" id="1_ta34w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2lqa"]
 size = Vector2(29, 39)
