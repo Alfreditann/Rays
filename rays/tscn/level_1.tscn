@@ -362,6 +362,7 @@ sources/0 = SubResource("TileSetAtlasSource_ibj5y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kf8w"]
 texture = ExtResource("1_pnq3n")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -708,6 +709,7 @@ texture = ExtResource("1_pnq3n")
 9:19/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_w33rq"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_3kf8w")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ou3g8"]
@@ -755,7 +757,7 @@ tile_set = SubResource("TileSet_ou3g8")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAA5ABgAAAAAAAIAAAA5ABkAAAAAAAEAAAA5ABoAAAAAAAEAAAA5ABsAAAAAAAEAAAA5ABwAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAKAAYAAAAAAAIAAAAKAAcAAAAAAAEAAAAKAAgAAAAAAAEAAAAKAAkAAAAAAAEAAAAKAAoAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_3kf8w")
 
 [node name="Speil" parent="." instance=ExtResource("2_ibj5y")]

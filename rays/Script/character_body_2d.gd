@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var is_moving: bool = false
 
+var move_direction: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
 
@@ -58,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		return
 		
-	target_position = global_position + global.move_direction * tile_size
+	target_position = global_position + move_direction * tile_size
 	moving = true
 
 func move_grid(delta):

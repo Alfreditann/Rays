@@ -112,7 +112,7 @@ size = Vector2(61, 76)
 size = Vector2(42.25, 44.7849)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
-size = Vector2(69.49994, 30)
+size = Vector2(69.4999, 30)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
 collision_layer = 5
@@ -147,9 +147,9 @@ shape = SubResource("RectangleShape2D_8dw2w")
 [node name="Speil_Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
-position = Vector2(578.0101, 328.74997)
-rotation = 1.569051
-scale = Vector2(0.9999991, 0.9999991)
+position = Vector2(578.01, 328.75)
+rotation = 1.56905
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_f237s")
 debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 
