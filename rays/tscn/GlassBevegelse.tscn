@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://f5f0cra4vv3c"]
+[gd_scene load_steps=16 format=3 uid="uid://f5f0cra4vv3c"]
 
 [ext_resource type="Script" uid="uid://bjbdpm2kmjtml" path="res://Script/Changing_Mirror.gd" id="1_eb2hk"]
 [ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="2_eb2hk"]
-[ext_resource type="Script" uid="uid://cy70asebt7toc" path="res://Script/kill_box.gd" id="3_8dw2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb2hk"]
 atlas = ExtResource("2_eb2hk")
@@ -12,9 +11,21 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("2_eb2hk")
 region = Rect2(0, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2ft1"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 160, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fng4u"]
 atlas = ExtResource("2_eb2hk")
 region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dw2w"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d7dv"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f237s"]
 atlas = ExtResource("2_eb2hk")
@@ -44,10 +55,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y2ft1")
+}],
+"loop": true,
+"name": &"mirror eigth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fng4u")
 }],
 "loop": true,
 "name": &"mirror five",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dw2w")
+}],
+"loop": true,
+"name": &"mirror seven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d7dv")
+}],
+"loop": true,
+"name": &"mirror six",
 "speed": 5.0
 }, {
 "frames": [{
@@ -70,17 +105,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fng4u"]
 size = Vector2(60, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ft1"]
+size = Vector2(61, 76)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
 size = Vector2(42.25, 44.7849)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb2hk"]
-size = Vector2(61, 78)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_paybu"]
-size = Vector2(36, 34)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
-size = Vector2(31.9241, 23.024)
+size = Vector2(69.49994, 30)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
 collision_layer = 5
@@ -91,11 +123,17 @@ script = ExtResource("1_eb2hk")
 position = Vector2(580, 310.5)
 scale = Vector2(2.46154, 2.65714)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
-animation = &"first mirror"
+animation = &"mirror six"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(581, 312)
 shape = SubResource("RectangleShape2D_fng4u")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(579.5, 311)
+shape = SubResource("RectangleShape2D_y2ft1")
 
 [node name="Activate_Radius" type="Area2D" parent="."]
 position = Vector2(580, 310.5)
@@ -106,30 +144,15 @@ modulate = Color(0.306394, 0.667854, 0.0300692, 1)
 position = Vector2(3.05176e-05, -0.376343)
 shape = SubResource("RectangleShape2D_8dw2w")
 
-[node name="Killbox" type="Area2D" parent="."]
-script = ExtResource("3_8dw2w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
-modulate = Color(0.815686, 0, 0.478431, 1)
-position = Vector2(581.5, 311)
-shape = SubResource("RectangleShape2D_eb2hk")
-
-[node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(-1, 4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(593, 331)
-shape = SubResource("RectangleShape2D_paybu")
-
 [node name="Speil_Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
-position = Vector2(569.46, 293.058)
-rotation = 1.56905
+position = Vector2(578.0101, 328.74997)
+rotation = 1.569051
+scale = Vector2(0.9999991, 0.9999991)
 shape = SubResource("RectangleShape2D_f237s")
 debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 
 [connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
 [connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]
-[connection signal="area_entered" from="Killbox" to="Killbox" method="_on_area_entered"]
 [connection signal="area_entered" from="Speil_Hitbox" to="." method="_on_speil_hitbox_area_entered"]
