@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		move_direction = Vector2.DOWN
 		anim.play("Front")
 	else:
+		$AnimatedSprite2D.stop()
 		return
 		
 	target_position = global_position + move_direction * tile_size
