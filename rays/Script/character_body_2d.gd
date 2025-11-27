@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var is_moving: bool = false
 
+var move_direction: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
 
@@ -41,23 +42,28 @@ func _physics_process(delta: float) -> void:
 	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
 		move_direction = Vector2.RIGHT
+		global.direction = "right"
 		anim.play("Right")
 
 	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
 		move_direction = Vector2.LEFT
+		global.direction = "left"
 		anim.play("Left")
 
 	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
 		move_direction = Vector2.UP
+		global.direction = "up"
 		anim.play("Back")
 
 	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
 		move_direction = Vector2.DOWN
+		global.direction = "down"
 		anim.play("Front")
 	else:
+		$AnimatedSprite2D.stop()
 		return
 		
-	target_position = global_position + global.move_direction * tile_size
+	target_position = global_position + move_direction * tile_size
 	moving = true
 
 func move_grid(delta):
