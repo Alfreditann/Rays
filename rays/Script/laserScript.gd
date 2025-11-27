@@ -21,25 +21,55 @@ func _on_area_entered(area):
 		print("Hit Speil_Hitbox!")
 		rect_shape1 = 1
 		
-		if global.direction == "right":
+		if global.direction == "up":
 			_Hit(90)
-		elif global.direction == "up":
-			_Hit(180)
 		last_hit_time = Time.get_ticks_msec()
 
 	elif area.name == "Speil_Hitbox2":
 		print("Hit Speil_Hitbox2!")
 		rect_shape1 = 2
-		_Hit(180)
+		if global.direction =="up":
+			_Hit(360)
+		elif global.direction == "left":
+			_Hit(90)
 		last_hit_time = Time.get_ticks_msec()
 	elif area.name == "Speil_Hitbox3":
 		rect_shape1 = 3
-		_Hit(-90)  
+		if global.direction == "left":
+			_Hit(360)  
 		last_hit_time = Time.get_ticks_msec()
 	elif area.name == "Speil_Hitbox4":
-		rect_shape1= 4
-		_Hit(0)
+		rect_shape1 = 4
+		if global.direction == "right":
+			_Hit(180)  
 		last_hit_time = Time.get_ticks_msec()
+	elif area.name == "Speil_Hitbox5":
+		rect_shape1 = 5
+		if global.direction =="up":
+			_Hit(360)
+		elif global.direction == "left":
+			_Hit(90)
+		last_hit_time = Time.get_ticks_msec()
+	elif area.name == "Speil_Hitbox6":
+		rect_shape1 = 6
+		if global.direction =="down":
+			_Hit(-90)
+		last_hit_time = Time.get_ticks_msec()
+	elif area.name == "Speil_Hitbox7":
+		rect_shape1 = 7
+		if global.direction =="right":
+			_Hit(90)
+		elif global.direction == "up":
+			_Hit(180)
+		last_hit_time = Time.get_ticks_msec()
+	elif area.name == "Speil_Hitbox8":
+		rect_shape1 = 8
+		if global.direction =="right":
+			_Hit(-90)
+		elif global.direction == "up":
+			_Hit(180)
+		last_hit_time = Time.get_ticks_msec()
+		
 		
 
 	$Timer.start() # restart lifetime timer
@@ -67,6 +97,8 @@ func _Hit(angle_change):
 	elif rect_shape1 == 3:
 		rect.extents = Vector2(4,16)
 	elif rect_shape1 == 4:
+		rect.extents = Vector2(16,4)
+	elif rect_shape1 == 5:
 		rect.extents = Vector2(16,4)
 
 	$Area2D/CollisionShape2D.shape = rect

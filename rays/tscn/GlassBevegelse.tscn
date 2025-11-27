@@ -112,7 +112,7 @@ size = Vector2(61, 76)
 size = Vector2(42.25, 44.7849)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
-size = Vector2(30, 30)
+size = Vector2(69.49994, 30)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
 collision_layer = 5
@@ -123,7 +123,7 @@ script = ExtResource("1_eb2hk")
 position = Vector2(580, 310.5)
 scale = Vector2(2.46154, 2.65714)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
-animation = &"first mirror"
+animation = &"mirror six"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(581, 312)
@@ -147,9 +147,9 @@ shape = SubResource("RectangleShape2D_8dw2w")
 [node name="Speil_Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
-position = Vector2(554, 346)
+position = Vector2(578.0101, 328.74997)
 rotation = 1.569051
-scale = Vector2(0.99999946, 0.99999946)
+scale = Vector2(0.9999991, 0.9999991)
 shape = SubResource("RectangleShape2D_f237s")
 debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
 
