@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://b3486tkxi2ipb"]
+[gd_scene load_steps=9 format=4 uid="uid://b3486tkxi2ipb"]
 
 [ext_resource type="Texture2D" uid="uid://djrw3nkl1gjjg" path="res://Sprites/Tileset.png" id="1_pnq3n"]
 [ext_resource type="PackedScene" uid="uid://beiu26tnm5puy" path="res://tscn/unmoveable_speil.tscn" id="2_ibj5y"]
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="3_ou3g8"]
+[ext_resource type="PackedScene" uid="uid://d2ays7mk3hq6y" path="res://tscn/move_speil.tscn" id="4_3kf8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibj5y"]
 texture = ExtResource("1_pnq3n")
@@ -45,6 +46,7 @@ texture_region_size = Vector2i(32, 32)
 17:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
+2:2/animation_speed = 10.0
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -83,6 +85,7 @@ texture_region_size = Vector2i(32, 32)
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:4/0 = 0
 5:4/0 = 0
 6:4/0 = 0
@@ -478,14 +481,15 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_ou3g8"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_ibj5y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ou3g8"]
 texture = ExtResource("1_pnq3n")
 texture_region_size = Vector2i(32, 32)
 0:1/animation_columns = 8
-0:1/animation_speed = 2.5
+0:1/animation_speed = 5.0
 0:1/animation_frame_0/duration = 1.0
 0:1/animation_frame_1/duration = 1.0
 0:1/animation_frame_2/duration = 1.0
@@ -495,6 +499,18 @@ texture_region_size = Vector2i(32, 32)
 0:1/animation_frame_6/duration = 1.0
 0:1/animation_frame_7/duration = 1.0
 0:1/0 = 0
+2:2/animation_columns = 4
+2:2/animation_speed = 5.0
+2:2/animation_frame_0/duration = 1.0
+2:2/animation_frame_1/duration = 1.0
+2:2/animation_frame_2/duration = 1.0
+2:2/animation_frame_3/duration = 1.0
+2:2/0 = 0
+0:2/animation_columns = 2
+0:2/animation_speed = 4.0
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3kf8w"]
 tile_size = Vector2i(32, 32)
@@ -503,15 +519,17 @@ sources/0 = SubResource("TileSetAtlasSource_ou3g8")
 [node name="Level1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAARAAYAAAADAAQAAAAPAAYAAAADAAQAAAA=")
 tile_set = SubResource("TileSet_ou3g8")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAKAAoAAAAGAAAAAAALAAsAAAAGAAAAAAAMAAwAAAAGAAAAAAAMAA0AAAAGAAAAAAANAA0AAAAGAAAAAAAOAA4AAAAGAAAAAAAPAA8AAAAGAAAAAAAQAA8AAAAGAAAAAAARAA8AAAAGAAAAAAASAA8AAAAGAAAAAAATABAAAAAGAAAAAAAUABAAAAAGAAAAAAAVABAAAAAGAAAAAAAWABAAAAAGAAAAAAAXABAAAAAGAAAAAAAYABAAAAAGAAAAAAAZABAAAAAGAAAAAAAaABAAAAAGAAAAAAAbABAAAAAGAAAAAAAcABAAAAAGAAAAAAA=")
 tile_set = SubResource("TileSet_ou3g8")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(147, 38)
-tile_map_data = PackedByteArray("AAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAALAAMAAAAAAAEAAAAMAAMAAAAAAAEAAAANAAMAAAAAAAEAAAAOAAMAAAAAAAEAAAAPAAMAAAAAAAEAAAAQAAMAAAAAAAEAAAARAAMAAAAAAAEAAAASAAMAAAAAAAEAAAATAAMAAAAAAAEAAAAUAAMAAAAAAAEAAAAJAAIAAAAAAAEAAAALAAIAAAAAAAEAAAAKAAIAAAAAAAEAAAAMAAIAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAARAAIAAAAAAAEAAAASAAIAAAAAAAEAAAATAAIAAAAAAAEAAAAUAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAJAAIAAAAAAAEAAAALAAIAAAAAAAEAAAAKAAIAAAAAAAEAAAAMAAIAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAARAAIAAAAAAAEAAAASAAIAAAAAAAEAAAATAAIAAAAAAAEAAAAUAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAAAAAEAAAAHAAEAAAAAAAEAAAAIAAEAAAAAAAEAAAAGAAMAAAACAAIAAAAHAAMAAAACAAIAAAAIAAMAAAACAAIAAAAJAAMAAAACAAIAAAAKAAMAAAACAAIAAAALAAMAAAACAAIAAAAMAAMAAAACAAIAAAANAAMAAAACAAIAAAAOAAMAAAACAAIAAAAPAAMAAAACAAIAAAAQAAMAAAACAAIAAAARAAMAAAACAAIAAAASAAMAAAACAAIAAAATAAMAAAACAAIAAAAUAAMAAAACAAIAAAAJAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAALAAEAAAAAAAEAAAAMAAEAAAAAAAEAAAANAAEAAAAAAAEAAAAOAAEAAAAAAAEAAAAPAAEAAAAAAAEAAAAQAAEAAAAAAAEAAAARAAEAAAAAAAEAAAASAAEAAAAAAAEAAAATAAEAAAAAAAEAAAAUAAEAAAAAAAEAAAAGAAAAAAAAAAIAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAAAAAAAAAAIAAAAOAAAAAAAAAAIAAAAPAAAAAAAAAAIAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAUAAAAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_3kf8w")
 
 [node name="Speil" parent="." instance=ExtResource("2_ibj5y")]
@@ -520,3 +538,6 @@ position = Vector2(525, 238)
 [node name="Player" parent="." instance=ExtResource("3_ou3g8")]
 position = Vector2(392, 193)
 scale = Vector2(0.74585, 0.57267)
+
+[node name="Move_Speil" parent="." instance=ExtResource("4_3kf8w")]
+position = Vector2(452, 227)

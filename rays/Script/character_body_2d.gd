@@ -88,7 +88,7 @@ func move_grid(delta):
 						point_query.collide_with_areas = false
 						var result = space_state.intersect_point(point_query)
 						if result.size() == 0:
-							body.global_position = push_target
+							body.linear_velocity = move_direction * 200
 
 	# Stop player movement if blocked
 		moving = false
@@ -116,9 +116,13 @@ func push_rigidbody_objects():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body is RigidBody2D:
-		# Only horizontal pushes
 			if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
-				body.apply_impulse(Vector2.ZERO, Vector2(move_direction.x * 20, 0))
+				var can_push := true  # you can still check for free space if needed
+				if can_push:
+			# Add a sideways push
+					body.apply_impulse(move_direction * 150)
+
+
 			
 			
 			
