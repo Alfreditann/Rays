@@ -154,7 +154,6 @@ animation = &"Front"
 script = ExtResource("3_ghijl")
 
 [node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
-wait_time = 2.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]

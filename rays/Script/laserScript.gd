@@ -1,12 +1,15 @@
 extends RigidBody2D
 
-var speed := 600
+var speed := 400
 var last_hit_time := 0.0
 var hit_delay := 0.2 # prevents multiple triggers per frame
 var rect_shape1 = 0
 func _ready():
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 	$Area2D.area_entered.connect(_on_area_entered)
+	
+	$Timer.wait_time = 0.2
+	$Timer.start()
 
 
 func _on_area_entered(area):
@@ -71,7 +74,6 @@ func _on_area_entered(area):
 		last_hit_time = Time.get_ticks_msec()
 		
 		
-
 	$Timer.start() # restart lifetime timer
 
 

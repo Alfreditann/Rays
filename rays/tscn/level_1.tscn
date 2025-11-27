@@ -1,19 +1,26 @@
-[gd_scene load_steps=11 format=4 uid="uid://b3486tkxi2ipb"]
+[gd_scene load_steps=12 format=4 uid="uid://b3486tkxi2ipb"]
 
 [ext_resource type="Texture2D" uid="uid://djrw3nkl1gjjg" path="res://Sprites/Tileset.png" id="1_pnq3n"]
 [ext_resource type="PackedScene" uid="uid://beiu26tnm5puy" path="res://tscn/unmoveable_speil.tscn" id="2_ibj5y"]
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="3_ou3g8"]
 [ext_resource type="PackedScene" uid="uid://d2ays7mk3hq6y" path="res://tscn/move_speil.tscn" id="4_3kf8w"]
+[ext_resource type="PackedScene" uid="uid://f5f0cra4vv3c" path="res://tscn/GlassBevegelse.tscn" id="5_w33rq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibj5y"]
 texture = ExtResource("1_pnq3n")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.55096, -10.5148, 16, -11.0406, 9.90145, -4.38117, 10.0767, 10.1643, 5.52028, 9.11284, -2.36583, 5.25741, -5.52028, -5.43266, -9.90145, -0.876236)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11.0406, 16, -11.7415, 16, -5.6079, 10.6024, -5.08216, 9.7262, 9.46333, 6.74701, 9.11284, -0.788612, 5.25741, -9.20046, 8.23661, -9.37571, -5.08216, -16, -6.13364)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11.0406, 8.14898, -10.6901, 10.0767, -1.40198, 4.64404, -5.08216, 2.54108, 6.65938, -9.37571, 9.63858, -9.72621, -5.78315, -16, -5.6079)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(7.79849, -4.03068, 8.84997, 4.20592, 2.71633, 11.7415, -5.69553, 16, -10.4272, 16, -14.2826, 1.40197, -16, -5.6079)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -4.90691, 16, 0.876236, 10.7777, 1.57722, 11.4787, 16, 7.0975, 16, -0.0876236, 12.6178, -5.16978, 16, -10.4272, 16, -11.6539, 1.05148, -16, -5.6079)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -5.9584, 16, 0.876236, 10.7777, 1.05148, 11.6539, 16, 6.92225, 16, -1.66485, 12.6178, -10.4272, 3.32969, -8.84997, -4.55642)
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
@@ -710,6 +717,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_w33rq"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3kf8w")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ou3g8"]
@@ -773,3 +781,6 @@ scale = Vector2(1.34075, 1.74621)
 
 [node name="Move_Speil" parent="." instance=ExtResource("4_3kf8w")]
 position = Vector2(452, 227)
+
+[node name="GlassBevegelse" parent="." instance=ExtResource("5_w33rq")]
+position = Vector2(376, 159)
