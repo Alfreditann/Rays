@@ -25,7 +25,8 @@ func update_raycast():
 
 
 func _physics_process(delta: float) -> void:
-
+	move_grid(delta)
+	push_rigidbody_objects()
 	# If currently moving, interpolate movement
 	if is_moving:
 		position = position.lerp(target_position, delta * 30)
@@ -38,20 +39,20 @@ func _physics_process(delta: float) -> void:
 
 
 	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
-	if Input.is_action_pressed("move_rigth") or Input.is_action_pressed("ui_right"):
-		move_dir = Vector2.RIGHT
-		anim.play("Rigth")
+	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
+		move_direction = Vector2.RIGHT
+		anim.play("Right")
 
 	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
-		move_dir = Vector2.LEFT
+		move_direction = Vector2.LEFT
 		anim.play("Left")
 
 	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
-		move_dir = Vector2.UP
+		move_direction = Vector2.UP
 		anim.play("Back")
 
 	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
-		move_dir = Vector2.DOWN
+		move_direction = Vector2.DOWN
 		anim.play("Front")
 	else:
 		return

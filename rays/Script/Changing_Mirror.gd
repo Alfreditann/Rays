@@ -13,9 +13,6 @@ var directionCounter = 0
 func _ready() -> void:
 	set_process_input(false)
 
-func _process(delta: float) -> void:
-	pass
-
 func _on_activate_radius_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		set_process_input(true)
