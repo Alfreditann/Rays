@@ -10,11 +10,11 @@ func _ready() -> void:
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame. 
-func _process(delta):
+func _process(_float):
 	#$Timer.time_left = 0
 	#if $Timer.time_left <= 0 :
 	
-	if Input.is_action_just_released("move_rigth") || Input.is_action_just_released("ui_right"):
+	if Input.is_action_just_released("move_right") || Input.is_action_just_released("ui_right"):
 		pos = Vector2(1,0)
 	elif Input.is_action_just_released("move_left") || Input.is_action_just_released("ui_left"):
 
@@ -25,7 +25,7 @@ func _process(delta):
 	elif Input.is_action_just_released("move_down")|| Input.is_action_just_released("ui_down"):
 
 		pos = Vector2(0,1)
-	if Input.is_action_just_pressed("ui_accept") and is_ready:
+	if Input.is_action_just_pressed("shoot") and is_ready:
 			is_ready = false
 			$ShootCooldown.start()
 			var instance = fireball.instantiate()

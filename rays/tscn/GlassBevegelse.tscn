@@ -151,7 +151,7 @@ position = Vector2(578.0101, 328.74997)
 rotation = 1.569051
 scale = Vector2(0.9999991, 0.9999991)
 shape = SubResource("RectangleShape2D_f237s")
-debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
+debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 
 [connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
 [connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]

@@ -14,7 +14,7 @@ var speed := 200.0 # pixels per second
 
 func _ready():
 	# Get sprite width/height (character size)
-	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, 0).get_size().x
+	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, anim.frame).get_size().x
 	target_position = position
 	target_position = global_position
 
@@ -25,28 +25,34 @@ func update_raycast():
 
 
 func _physics_process(delta: float) -> void:
-	handle_input()
 	move_grid(delta)
 	push_rigidbody_objects()
-	
-func handle_input():
-	if moving:
+	# If currently moving, interpolate movement
+	if is_moving:
+		position = position.lerp(target_position, delta * 30)
+
+		# Stop when close enough
+		if position.distance_to(target_position) < 1:
+			position = target_position
+			is_moving = false
 		return
-	if Input.is_action_pressed("move_rigth"):
-		global.move_direction = Vector2.RIGHT
-		global.direction = "right"
-		anim.play("Rigth")
-	elif Input.is_action_pressed("move_left"):
-		global.direction = "left"
-		global.move_direction = Vector2.LEFT
+
+
+	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
+	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
+		move_direction = Vector2.RIGHT
+		anim.play("Right")
+
+	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
+		move_direction = Vector2.LEFT
 		anim.play("Left")
-	elif Input.is_action_pressed("move_up"):
-		global.direction = "up"
-		global.move_direction = Vector2.UP
+
+	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
+		move_direction = Vector2.UP
 		anim.play("Back")
-	elif Input.is_action_pressed("move_down"):
-		global.direction = "down"
-		global.move_direction = Vector2.DOWN
+
+	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
+		move_direction = Vector2.DOWN
 		anim.play("Front")
 	else:
 		return
@@ -82,12 +88,12 @@ func move_grid(delta):
 						point_query.collide_with_areas = false
 						var result = space_state.intersect_point(point_query)
 						if result.size() == 0:
-							body.global_position = push_target
+							body.linear_velocity = move_direction * 200
 
 	# Stop player movement if blocked
-	moving = false
-	target_position = global_position
-	return
+		moving = false
+		target_position = global_position
+		return
 
 	if global_position.distance_to(target_position) < 0.1:
 		global_position = target_position
@@ -106,13 +112,17 @@ func move_grid(delta):
 func push_rigidbody_objects():
 	if not moving:
 		return
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var body = collision.get_collider()
-			if body is RigidBody2D:
-		# Only horizontal pushes
-				if global.move_direction == Vector2.LEFT or global.move_direction == Vector2.RIGHT:
-					body.apply_impulse(Vector2.ZERO, Vector2(global.move_direction.x * 20, 0))
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body is RigidBody2D:
+			if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
+				var can_push := true  # you can still check for free space if needed
+				if can_push:
+			# Add a sideways push
+					body.apply_impulse(move_direction * 150)
+
+
 			
 			
 			
