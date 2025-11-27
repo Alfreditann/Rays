@@ -141,7 +141,6 @@ scale = Vector2(2.46154, 2.65714)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
 modulate = Color(0.306394, 0.667854, 0.0300692, 1)
 position = Vector2(0.453088, -0.946237)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8dw2w")
 
 [node name="Speil_Hitbox" type="Area2D" parent="."]
