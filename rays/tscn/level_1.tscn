@@ -480,6 +480,7 @@ texture_region_size = Vector2i(32, 32)
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:4/0 = 0
 5:4/0 = 0
 6:4/0 = 0
@@ -817,7 +818,7 @@ scale = Vector2(0.74585, 0.57267)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1.85966e-05, 5.23861)
 scale = Vector2(1.34075, 1.74621)
-zoom = Vector2(2, 2)
+zoom = Vector2(6, 6)
 
 [node name="Move_Speil" parent="." instance=ExtResource("4_3kf8w")]
 position = Vector2(341, 352)
@@ -826,4 +827,4 @@ position = Vector2(341, 352)
 position = Vector2(1137, 99)
 
 [node name="Move_Speil2" parent="." instance=ExtResource("4_3kf8w")]
-position = Vector2(569, 436)
+position = Vector2(575, 444)
