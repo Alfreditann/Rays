@@ -10,12 +10,15 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+texture_filter = 1
+position = Vector2(681, 110)
+
 [node name="StaticBody2D" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(996, 100)
-script = null
+position = Vector2(1036, 98)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_8wxc5")]
-position = Vector2(977, 412)
+position = Vector2(1037, 400)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("4_a7rub")]
 position = Vector2(485, 413)

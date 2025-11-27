@@ -14,7 +14,7 @@ var speed := 200.0 # pixels per second
 
 func _ready():
 	# Get sprite width/height (character size)
-	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, 0).get_size().x
+	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, anim.frame).get_size().x
 	target_position = position
 	target_position = global_position
 
@@ -25,24 +25,33 @@ func update_raycast():
 
 
 func _physics_process(delta: float) -> void:
-	handle_input()
-	move_grid(delta)
-	push_rigidbody_objects()
-	
-func handle_input():
-	if moving:
+
+	# If currently moving, interpolate movement
+	if is_moving:
+		position = position.lerp(target_position, delta * 30)
+
+		# Stop when close enough
+		if position.distance_to(target_position) < 1:
+			position = target_position
+			is_moving = false
 		return
-	if Input.is_action_pressed("move_rigth"):
-		move_direction = Vector2.RIGHT
-		anim.play("Right")
-	elif Input.is_action_pressed("move_left"):
-		move_direction = Vector2.LEFT
+
+
+	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
+	if Input.is_action_pressed("move_rigth") or Input.is_action_pressed("ui_right"):
+		move_dir = Vector2.RIGHT
+		anim.play("Rigth")
+
+	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
+		move_dir = Vector2.LEFT
 		anim.play("Left")
-	if Input.is_action_pressed("move_up"):
-		move_direction = Vector2.UP
+
+	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
+		move_dir = Vector2.UP
 		anim.play("Back")
-	elif Input.is_action_pressed("move_down"):
-		move_direction = Vector2.DOWN
+
+	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
+		move_dir = Vector2.DOWN
 		anim.play("Front")
 	else:
 		return
