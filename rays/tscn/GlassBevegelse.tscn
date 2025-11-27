@@ -103,16 +103,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fng4u"]
-size = Vector2(60, 80)
+size = Vector2(51, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ft1"]
-size = Vector2(61, 76)
+size = Vector2(52, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
-size = Vector2(42.25, 44.7849)
+size = Vector2(34.5312, 31.6129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
-size = Vector2(69.49994, 30)
+size = Vector2(44, 22.0768)
 
 [node name="GlassBevegelse" type="StaticBody2D"]
 collision_layer = 5
@@ -120,36 +120,36 @@ collision_mask = 18
 script = ExtResource("1_eb2hk")
 
 [node name="Mirror" type="AnimatedSprite2D" parent="."]
-position = Vector2(580, 310.5)
-scale = Vector2(2.46154, 2.65714)
+scale = Vector2(1.5, 1.619)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
 animation = &"mirror six"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(581, 312)
+position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_fng4u")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(579.5, 311)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_y2ft1")
 
 [node name="Activate_Radius" type="Area2D" parent="."]
-position = Vector2(580, 310.5)
+position = Vector2(-0.615295, -1.48572)
 scale = Vector2(2.46154, 2.65714)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
 modulate = Color(0.306394, 0.667854, 0.0300692, 1)
-position = Vector2(3.05176e-05, -0.376343)
+position = Vector2(0.453088, -0.946237)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8dw2w")
 
 [node name="Speil_Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
-position = Vector2(578.0101, 328.74997)
-rotation = 1.569051
-scale = Vector2(0.9999991, 0.9999991)
+position = Vector2(1.01048, -1.00002)
+rotation = 1.56905
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_f237s")
 debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 

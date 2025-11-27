@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddvl8x7r7egua"]
 
 [ext_resource type="Texture2D" uid="uid://bsklpf7fe5mr6" path="res://Sprites/icon.svg" id="1_ac4oq"]
-[ext_resource type="Script" uid="uid://b1v3b27egun7y" path="res://main_speil.gd" id="1_owrmh"]
+[ext_resource type="Script" path="res://main_speil.gd" id="1_owrmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nxhx"]
 size = Vector2(120, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hir5"]
-size = Vector2(37.1875, 3.1836452)
+size = Vector2(37.1875, 3.18365)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_owrmh")
@@ -22,11 +22,10 @@ shape = SubResource("RectangleShape2D_8nxhx")
 [node name="Speil_Hitbox7" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox7"]
-position = Vector2(28, -33.000004)
-rotation = -5.368633
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(28, -33)
+rotation = -5.36863
 shape = SubResource("RectangleShape2D_4hir5")
-debug_color = Color(0.93959063, 1.2706519e-05, 0.6208718, 0.41960785)
+debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ba1j11tdsuuvs"]
 
-[ext_resource type="Texture2D" uid="uid://1ug5sq5c524a" path="res://Sprites/icon.svg" id="1_yjt17"]
+[ext_resource type="Texture2D" uid="uid://bsklpf7fe5mr6" path="res://Sprites/icon.svg" id="1_yjt17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqmy"]
 size = Vector2(64, 65)
@@ -25,4 +25,4 @@ shape = SubResource("RectangleShape2D_ypqmy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, -1.5)
 shape = SubResource("RectangleShape2D_yjt17")
-debug_color = Color(0.57669115, 0, 0.08223649, 0.41960785)
+debug_color = Color(0.576691, 0, 0.0822365, 0.419608)
