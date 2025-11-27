@@ -38,7 +38,7 @@ func handle_input():
 	elif Input.is_action_pressed("move_left"):
 		move_direction = Vector2.LEFT
 		anim.play("Left")
-	elif Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up"):
 		move_direction = Vector2.UP
 		anim.play("Back")
 	elif Input.is_action_pressed("move_down"):
