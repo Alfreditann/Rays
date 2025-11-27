@@ -103,13 +103,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fng4u"]
-size = Vector2(51, 52)
+size = Vector2(76, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ft1"]
 size = Vector2(52, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
-size = Vector2(34.5312, 31.6129)
+size = Vector2(45.5, 41.3979)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
 size = Vector2(44, 22.0768)
@@ -125,7 +125,6 @@ sprite_frames = SubResource("SpriteFrames_f5i7f")
 animation = &"mirror six"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_fng4u")
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -140,7 +139,7 @@ scale = Vector2(2.46154, 2.65714)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
 modulate = Color(0.306394, 0.667854, 0.0300692, 1)
-position = Vector2(0.453088, -0.946237)
+position = Vector2(2.68746, -0.193547)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8dw2w")
 
