@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 	# If currently moving, interpolate movement
 	if is_moving:
-		position = position.lerp(target_position, delta * 10)
+		position = position.lerp(target_position, delta * 20)
 
 		# Stop when close enough
 		if position.distance_to(target_position) < 1:
@@ -57,5 +57,4 @@ func _physics_process(delta: float) -> void:
 	is_moving = true
 
 	# Rotate character and align raycast
-	rotation = move_dir.angle()
 	update_raycast()
