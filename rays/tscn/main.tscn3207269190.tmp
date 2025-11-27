@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkoij8pmnxp6a"]
+
+[ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b6u4tl1k2ra5o" path="res://tscn/speil.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ba1j11tdsuuvs" path="res://static_body_2d.tscn" id="3_8wxc5"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(686, 284)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(1036, 98)
+
+[node name="Bot" parent="." instance=ExtResource("3_8wxc5")]
+position = Vector2(397, 291)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(875, 324)
+zoom = Vector2(0.5, 0.5)

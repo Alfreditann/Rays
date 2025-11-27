@@ -25,7 +25,7 @@ func _process(delta):
 	elif Input.is_action_just_released("move_down")|| Input.is_action_just_released("ui_down"):
 
 		pos = Vector2(0,1)
-	if Input.is_action_just_pressed("ui_accept") and is_ready:
+	if Input.is_action_just_pressed("shoot") and is_ready:
 			is_ready = false
 			$ShootCooldown.start()
 			var instance = fireball.instantiate()
