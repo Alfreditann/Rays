@@ -85,5 +85,5 @@ func _input(event) -> void:
 
 	mirror.play(directions[current_index])
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	emit_signal("speilHit")

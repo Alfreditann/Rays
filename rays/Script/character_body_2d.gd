@@ -91,9 +91,9 @@ func move_grid(delta):
 							body.global_position = push_target
 
 	# Stop player movement if blocked
-	moving = false
-	target_position = global_position
-	return
+		moving = false
+		target_position = global_position
+		return
 
 	if global_position.distance_to(target_position) < 0.1:
 		global_position = target_position
@@ -112,13 +112,13 @@ func move_grid(delta):
 func push_rigidbody_objects():
 	if not moving:
 		return
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var body = collision.get_collider()
-			if body is RigidBody2D:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body is RigidBody2D:
 		# Only horizontal pushes
-				if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
-					body.apply_impulse(Vector2.ZERO, Vector2(move_direction.x * 20, 0))
+			if move_direction == Vector2.LEFT or move_direction == Vector2.RIGHT:
+				body.apply_impulse(Vector2.ZERO, Vector2(move_direction.x * 20, 0))
 			
 			
 			
