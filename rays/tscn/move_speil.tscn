@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="1_n855b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2lqa"]
-size = Vector2(29, 39)
+size = Vector2(18, 29)
 
 [node name="Move_Speil" type="RigidBody2D"]
 collision_layer = 3
@@ -12,12 +12,12 @@ linear_damp = 20.0
 angular_damp = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.5, -23)
-scale = Vector2(0.96875, 1.3125)
+position = Vector2(-8, -16.5)
+scale = Vector2(0.6875, 0.90625)
 texture = ExtResource("1_n855b")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -22.5)
+position = Vector2(-8, -16)
 shape = SubResource("RectangleShape2D_g2lqa")
