@@ -16,7 +16,7 @@ func _ready() -> void:
 	set_process_input(false)
 	change_hurtbox.shape.size.y = 30
 	change_hurtbox.position.y = change_hurtbox.position.y-27
-
+	
 func _on_activate_radius_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		set_process_input(true)
@@ -39,7 +39,9 @@ func _input(event) -> void:
 				get_speil.position = testdDirection[current_index]
 				get_speil.name = "Speil_Hitbox"
 				change_hurtbox.shape.size.y = 30
-				change_hurtbox.position.y = change_hurtbox.position.y-27
+				change_hurtbox.shape.size.x = 64
+				change_hurtbox.position.y = change_hurtbox.position.y-30
+				change_hurtbox.position.x = change_hurtbox.position.x -20
 			elif current_index == 1:
 				get_speil.position = testdDirection[current_index]
 				get_speil.name = "Speil_Hitbox2"

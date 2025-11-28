@@ -98,42 +98,38 @@ func _Hit(angle_change):
 	elif rect_shape1 == 2:
 		if global.direction == "up":
 			rect.extents = Vector2(4,16)
-			anim.play = "Left"
+			anim.play("up")
 		elif global.direction == "left":
-			rect.extents = Vector2(4,16)
-			anim.play ="up"
+			rect.extents = Vector2(16,4)
+			anim.play("up")
 	elif rect_shape1 == 3:
 		rect.extents = Vector2(16,4)
 	elif rect_shape1 == 4:
 		rect.extents = Vector2(16,4)
 	elif rect_shape1 == 5:
-		if global.direction == "left":
-			rect.extents = Vector2(4,16)
-			anim.play = "up"
+		if global.direction == "right":
+			rect.extents = Vector2(16,4)
+			anim.play("up")
 		elif global.direction == "up":
 			rect.extents = Vector2(4,16)
-			anim.play = "left"
+			anim.play("up")
 	elif rect_shape1 == 6:
-		if global.direction == "left":
+		if global.direction == "down":
 			rect.extents = Vector2(4,16)
-			anim.play = "up"
-		elif global.direction == "up":
-			rect.extents = Vector2(4,16)
-			anim.play = "left"
 	elif rect_shape1 == 7:
 		if global.direction == "left":
+			rect.extents = Vector2(16,4)
+			anim.play("up")
+		elif global.direction == "down":
 			rect.extents = Vector2(4,16)
-			anim.play = "up"
-		elif global.direction == "up":
-			rect.extents = Vector2(4,16)
-			anim.play = "left"
+			anim.play("up")
 	elif rect_shape1 == 8:
-		if global.direction == "left":
+		if global.direction == "right":
+			rect.extents = Vector2(16,4)
+			anim.play("up")
+		elif global.direction == "down":
 			rect.extents = Vector2(4,16)
-			anim.play = "up"
-		elif global.direction == "up":
-			rect.extents = Vector2(4,16)
-			anim.play = "left"
+			anim.play("up")
 
 	$Area2D/CollisionShape2D.shape = rect
 

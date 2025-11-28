@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8bp7yjd6idsh"]
+[gd_scene load_steps=8 format=3 uid="uid://c8bp7yjd6idsh"]
 
 [ext_resource type="Script" uid="uid://cet7uhhhq5mdv" path="res://Script/laserScript.gd" id="1_wb1vr"]
 [ext_resource type="Texture2D" uid="uid://47ifhvbpgtow" path="res://Sprites/fireball(3).png" id="1_wltir"]
+[ext_resource type="Texture2D" uid="uid://baxyj02v3h2rw" path="res://Sprites/Fireball2.webp" id="3_b4oaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jiowd"]
 size = Vector2(32, 8)
@@ -10,9 +11,9 @@ size = Vector2(32, 8)
 atlas = ExtResource("1_wltir")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4oaf"]
-atlas = ExtResource("1_wltir")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2vue"]
+atlas = ExtResource("3_b4oaf")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2vue"]
 animations = [{
@@ -26,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b4oaf")
+"texture": SubResource("AtlasTexture_u2vue")
 }],
 "loop": true,
 "name": &"up",
