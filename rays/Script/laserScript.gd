@@ -9,8 +9,20 @@ func _ready():
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 	$Area2D.area_entered.connect(_on_area_entered)
 	
-	$Timer.wait_time = 0.2
+	$Timer.wait_time = 0.5
 	$Timer.start()
+	# Physics safety
+	gravity_scale = 0
+	lock_rotation = true   # Godot 4 property; if Godot 3 use 'freeze' or 'can_sleep' settings accordingly
+	angular_velocity = 0
+	# Make sure the body isn't sleeping when we set velocity
+	sleeping = false
+
+func start_motion() -> void:
+	# Compute velocity from the current rotation
+	linear_velocity = Vector2.RIGHT.rotated(rotation).normalized() * speed
+	sleeping = false
+	# Debug:
 
 func _on_area_entered(area):
 	# Prevent duplicate trigger if still colliding
@@ -85,12 +97,13 @@ func _Hit(angle_change):
 	var rect = RectangleShape2D.new()
 
 	# Convert angle to radians
-	rotation = deg_to_rad(angle_change)
+	 # Convert degrees to radians and ADD it to the current rotation
+	rotation += deg_to_rad(angle_change)
 
-	# Apply new movement direction
+	# Apply new movement
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 
-	# 1️⃣ Rotate hitbox first
+	# Update hitbox rotation
 	$Area2D/CollisionShape2D.rotation = rotation
 
 	# 2️⃣ Rotate sprite to match hitbox
