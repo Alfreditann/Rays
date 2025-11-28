@@ -1,23 +1,20 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var raycast: RayCast2D = $RayCast2D
+#@onready var raycast: RayCast2D = $RayCast2D
 
 var is_moving: bool = false
 var move_dir: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
 
-
 func _ready():
 	# Get sprite width/height (character size)
 	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, anim.frame).get_size().x
 	target_position = position
 
-
-func update_raycast():
-	raycast.target_position = move_dir * 40
-
+#func update_raycast():
+	##raycast.cast_to = move_dir.normalized() * 40.0
 
 func _physics_process(delta: float) -> void:
 	move_grid(delta)
@@ -26,7 +23,6 @@ func _physics_process(delta: float) -> void:
 	if is_moving:
 		position = position.lerp(target_position, delta * 30)
 
-		# Stop when close enough
 		if position.distance_to(target_position) < 1:
 			position = target_position
 			is_moving = false
