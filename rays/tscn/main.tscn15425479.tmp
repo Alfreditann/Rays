@@ -10,6 +10,10 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+texture_filter = 1
+position = Vector2(681, 110)
+
 [node name="StaticBody2D" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1036, 98)
 
@@ -23,11 +27,9 @@ position = Vector2(485, 413)
 position = Vector2(490, 85)
 
 [node name="GlassBevegelse3" parent="." instance=ExtResource("6_8kplt")]
-texture_filter = 1
 position = Vector2(170, 144)
 
 [node name="GlassBevegelse" parent="." instance=ExtResource("7_ao1ln")]
-texture_filter = 1
 position = Vector2(179, -43)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
