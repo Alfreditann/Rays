@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://speil4.tscn" id="5_g6ans"]
 [ext_resource type="PackedScene" path="res://tscn/move_speil.tscn" id="6_8kplt"]
 [ext_resource type="PackedScene" uid="uid://f5f0cra4vv3c" path="res://tscn/GlassBevegelse.tscn" id="7_ao1ln"]
-[ext_resource type="PackedScene" uid="uid://c2n64kuephuhl" path="res://tscn/monster.tscn" id="8_q8ief"]
+[ext_resource type="PackedScene" uid="uid://dewfqsbnr3dx5" path="res://tscn/NoMoveMirror.tscn" id="8_q8ief"]
 
 [node name="Main" type="Node2D"]
 
@@ -32,8 +32,7 @@ texture_filter = 1
 position = Vector2(179, -43)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-texture_filter = 1
-position = Vector2(457, 295)
+position = Vector2(348, 223)
 
-[node name="StaticBody2D5" parent="." instance=ExtResource("8_q8ief")]
-position = Vector2(727, 287)
+[node name="NoMoveMirror" parent="." instance=ExtResource("8_q8ief")]
+position = Vector2(205, 241)
