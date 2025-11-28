@@ -156,3 +156,5 @@ func _on_timer_timeout():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		queue_free()
+	if area.name == "Monster":
+		queue_free()
