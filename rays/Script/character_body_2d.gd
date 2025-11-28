@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-#@onready var raycast: RayCast2D = $RayCast2D
-
-var moving = false
+@onready var raycast: RayCast2D = $RayCast2D
+var tile_size := 32
+var moving := false
+var speed := 200
 var is_moving: bool = false
 var move_dir: Vector2 = Vector2.ZERO
 var move_distance: float
@@ -33,29 +34,28 @@ func _physics_process(delta: float) -> void:
 	# --- INPUT ---
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
 		move_dir = Vector2.RIGHT
+		global.direction = "right"
 		anim.play("Right")
 
 	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
 		move_dir = Vector2.LEFT
+		global.direction = "left"
 		anim.play("Left")
 
 	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
 		move_dir = Vector2.UP
+		global.direction = "up"
 		anim.play("Back")
 
 	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
 		move_dir = Vector2.DOWN
+		global.direction = "down"
 		anim.play("Front")
 	else:
 		return
-
-	# Move one tile
-	target_position = position + move_dir * move_distance
-	is_moving = true
-
-	# Update raycast
-	#update_raycast()
-
+		
+	target_position = global_position + move_dir * tile_size
+	moving = true
 
 func move_grid(delta):
 	if not moving:
