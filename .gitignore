@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+rays/tscn/character_body_2d.tscn
