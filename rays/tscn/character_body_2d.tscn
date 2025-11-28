@@ -158,7 +158,6 @@ animation = &"Front"
 script = ExtResource("3_ghijl")
 
 [node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(-4, -9.5)

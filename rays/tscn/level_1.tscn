@@ -808,7 +808,7 @@ tile_map_data = PackedByteArray("AAAoAAYAAAAAAAIAAAAoAAcAAAAAAAEAAAAoAAgAAAAAAAE
 tile_set = SubResource("TileSet_3kf8w")
 
 [node name="Speil" parent="." instance=ExtResource("2_ibj5y")]
-position = Vector2(678, 178)
+position = Vector2(884, 204)
 
 [node name="Player" parent="." instance=ExtResource("3_ou3g8")]
 position = Vector2(358, 341)
@@ -826,4 +826,4 @@ position = Vector2(341, 352)
 position = Vector2(1137, 99)
 
 [node name="Move_Speil2" parent="." instance=ExtResource("4_3kf8w")]
-position = Vector2(585, 445)
+position = Vector2(882, 317)

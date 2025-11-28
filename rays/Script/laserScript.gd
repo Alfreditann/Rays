@@ -8,7 +8,7 @@ func _ready():
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 	$Area2D.area_entered.connect(_on_area_entered)
 	
-	$Timer.wait_time = 0.2
+	$Timer.wait_time = 0.6
 	$Timer.start()
 
 
