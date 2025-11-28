@@ -9,8 +9,7 @@ var is_moving: bool = false
 var move_dir: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
-var speed = 200
-var tile_size = 32
+
 
 func _ready():
 	# Get sprite width/height (character size)
