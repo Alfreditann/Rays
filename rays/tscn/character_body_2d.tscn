@@ -158,6 +158,7 @@ animation = &"Front"
 script = ExtResource("3_ghijl")
 
 [node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
+wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(-4, -9.5)
@@ -171,9 +172,6 @@ collision_layer = 4
 modulate = Color(0.188235, 0, 0.0235294, 1)
 position = Vector2(15, 4.5)
 shape = SubResource("RectangleShape2D_xm04k")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(75, 0)
 
 [connection signal="timeout" from="AnimatedSprite2D/ShootCooldown" to="AnimatedSprite2D" method="_on_shoot_cooldown_timeout"]
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]

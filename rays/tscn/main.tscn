@@ -26,7 +26,7 @@ position = Vector2(490, 85)
 position = Vector2(170, 144)
 
 [node name="GlassBevegelse" parent="." instance=ExtResource("7_ao1ln")]
-position = Vector2(179, -43)
+position = Vector2(301, 209)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(457, 295)
