@@ -83,3 +83,10 @@ shoot={
 
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/decals/filter=0
+textures/light_projectors/filter=0

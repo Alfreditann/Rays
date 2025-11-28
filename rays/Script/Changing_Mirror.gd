@@ -14,8 +14,8 @@ var directionCounter = 0
 
 func _ready() -> void:
 	set_process_input(false)
-	change_hurtbox.shape.size.y = 30
-	change_hurtbox.position.y = change_hurtbox.position.y-27
+	change_hurtbox.shape.size.y = 300000
+	change_hurtbox.position.y = change_hurtbox.position.y-2700000
 	
 func _on_activate_radius_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

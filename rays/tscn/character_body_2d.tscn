@@ -139,8 +139,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
-size = Vector2(32, 45)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xm04k"]
+radius = 17.0
+height = 55.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xm04k"]
 size = Vector2(32, 45)
@@ -162,7 +163,7 @@ wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(-4, -9.5)
-shape = SubResource("RectangleShape2D_44cfe")
+shape = SubResource("CapsuleShape2D_xm04k")
 
 [node name="Player" type="Area2D" parent="." groups=["player"]]
 position = Vector2(-19, -14)
