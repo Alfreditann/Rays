@@ -13,15 +13,15 @@ region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y2ft1"]
 atlas = ExtResource("2_eb2hk")
-region = Rect2(0, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fng4u"]
-atlas = ExtResource("2_eb2hk")
-region = Rect2(0, 224, 32, 32)
+region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dw2w"]
 atlas = ExtResource("2_eb2hk")
 region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng4u"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d7dv"]
 atlas = ExtResource("2_eb2hk")
@@ -29,7 +29,7 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f237s"]
 atlas = ExtResource("2_eb2hk")
-region = Rect2(0, 192, 32, 32)
+region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wd08o"]
 atlas = ExtResource("2_eb2hk")
@@ -63,7 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fng4u")
+"texture": SubResource("AtlasTexture_8dw2w")
 }],
 "loop": true,
 "name": &"mirror five",
@@ -71,7 +71,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8dw2w")
+"texture": SubResource("AtlasTexture_fng4u")
 }],
 "loop": true,
 "name": &"mirror seven",
@@ -123,7 +123,7 @@ script = ExtResource("1_eb2hk")
 [node name="Mirror" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.462, 2.657)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
-animation = &"first mirror"
+animation = &"mirror seven"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fng4u")
