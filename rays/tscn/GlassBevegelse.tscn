@@ -123,7 +123,7 @@ script = ExtResource("1_eb2hk")
 [node name="Mirror" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.462, 2.657)
 sprite_frames = SubResource("SpriteFrames_f5i7f")
-animation = &"mirror seven"
+animation = &"first mirror"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fng4u")

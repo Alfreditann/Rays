@@ -140,9 +140,9 @@ func _on_area_entered(area):
 		rect_shape1 = 10
 		_Hit(360)
 		last_hit_time = Time.get_ticks_msec()
-	if area.name.begins_with("Speil_Hitbox"):
-		$Timer.wait_time = $Timer.time_left + 0.3
-		$Timer.start()
+
+	$Timer.wait_time = $Timer.time_left + 0.3
+	$Timer.start()
 
 func _Hit(angle_change):
 	var rect = RectangleShape2D.new()
