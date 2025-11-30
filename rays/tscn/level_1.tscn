@@ -10,11 +10,11 @@
 texture = ExtResource("1_pnq3n")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11.152077, 16, -11.470707, 16, 16, -16, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.43266, 16, 5.43266, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11.152077, 16, -11.470707, 16, 16, -16, 16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.43266, 16, 5.43266, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -11.152077, 16, -11.470707, 16, 16, -16, 16)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.43266, 16, 5.43266, 16, 16, -16, 16)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -274,6 +274,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ou3g8")
 
 [node name="Level1" type="Node2D"]
+position = Vector2(2, 7)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.00155, 0.998683)
@@ -295,19 +296,19 @@ tile_set = SubResource("TileSet_3kf8w")
 position = Vector2(331, 335)
 
 [node name="Player" parent="." instance=ExtResource("3_ou3g8")]
-position = Vector2(372, 399.99997)
+position = Vector2(372, 400)
 scale = Vector2(0.74585, 0.57267)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1.85966e-05, 5.23861)
 scale = Vector2(1.34075, 1.74621)
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 
 [node name="GlassBevegelse2" parent="." instance=ExtResource("5_w33rq")]
-position = Vector2(498.99997, 431)
+position = Vector2(499, 431)
 
 [node name="GlassBevegelse3" parent="." instance=ExtResource("5_w33rq")]
-position = Vector2(620, 426.00003)
+position = Vector2(621, 431)
 
 [node name="Node2D" parent="." instance=ExtResource("4_3kf8w")]
 position = Vector2(335, 432)
