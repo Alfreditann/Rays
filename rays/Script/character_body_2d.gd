@@ -2,55 +2,60 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast: RayCast2D = $RayCast2D
-var tile_size := 32
-var moving := false
-var speed := 200
+
 var is_moving: bool = false
 var move_direction: Vector2 = Vector2.ZERO
 var move_distance: float
 var target_position: Vector2
 
+var tile_size := 32
+var moving := false
+var speed := 200.0 # pixels per second
 
 func _ready():
 	# Get sprite width/height (character size)
 	move_distance = anim.sprite_frames.get_frame_texture(anim.animation, anim.frame).get_size().x
 	target_position = position
+	target_position = global_position
 
-#func update_raycast():
-	##raycast.cast_to = move_dir.normalized() * 40.0
+
+func update_raycast():
+	raycast.target_position = move_direction * 40
+
+
 
 func _physics_process(delta: float) -> void:
-
+	move_grid(delta)
+	push_rigidbody_objects()
 	# If currently moving, interpolate movement
 	if is_moving:
 		position = position.lerp(target_position, delta * 30)
 
+		# Stop when close enough
 		if position.distance_to(target_position) < 1:
 			position = target_position
 			is_moving = false
 		return
 
-	# --- INPUT ---
+
+	# --- HANDLE INPUT ONLY WHEN NOT MOVING ---
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
 		move_direction = Vector2.RIGHT
-		global.direction = "right"
 		anim.play("Right")
 
 	elif Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
 		move_direction = Vector2.LEFT
-		global.direction = "left"
 		anim.play("Left")
 
 	elif Input.is_action_pressed("move_up") or Input.is_action_pressed("ui_up"):
 		move_direction = Vector2.UP
-		global.direction = "up"
 		anim.play("Back")
 
 	elif Input.is_action_pressed("move_down") or Input.is_action_pressed("ui_down"):
 		move_direction = Vector2.DOWN
-		global.direction = "down"
 		anim.play("Front")
 	else:
+		$AnimatedSprite2D.stop()
 		return
 		
 	target_position = global_position + move_direction * tile_size

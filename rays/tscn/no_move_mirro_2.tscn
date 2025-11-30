@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ek032kmx1hw"]
+[gd_scene load_steps=6 format=3 uid="uid://bw7obonb2e2vm"]
 
 [ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="1_s08al"]
 [ext_resource type="Script" path="res://Script/no_move_mirro_2.gd" id="1_topij"]
