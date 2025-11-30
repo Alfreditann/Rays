@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://co3ysbs8l2om4"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_y32ns"]
+file = "res://Animations/towerOGG.ogg"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -575.0
+offset_top = -322.0
+offset_right = 4241.0
+offset_bottom = 2386.0
+stream = SubResource("VideoStreamTheora_y32ns")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="VideoStreamPlayer"]
+position = Vector2(575, 322)
+scale = Vector2(5, 5)
