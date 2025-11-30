@@ -11,7 +11,7 @@ func _ready():
 	linear_velocity = Vector2.RIGHT.rotated(rotation) * speed
 	$Area2D.area_entered.connect(_on_area_entered)
 	
-	$Timer.wait_time = 1
+	$Timer.wait_time = 0.3
 	$Timer.start()
 	# Physics safety
 	gravity_scale = 0
@@ -126,7 +126,7 @@ func _on_area_entered(area):
 			_Hit(180)
 		elif global.direction == "down":
 			_Hit(180)
-		elif global.direction == "right":
+		elif global.direction == "left":
 			_Hit(180)
 		elif global.direction == "up":
 			_Hit(180)
@@ -134,11 +134,15 @@ func _on_area_entered(area):
 		
 	elif area.name == "Speil_Hitbox9":
 		rect_shape1 = 9
-		_Hit(180) # or whatever bounce angle you need
+		_Hit(180)
+		last_hit_time = Time.get_ticks_msec()
 	elif area.name == "Speil_Hitbox10":
 		rect_shape1 = 10
-		_Hit(90) # or whatever bounce angle you need
-	$Timer.start() # restart lifetime timer
+		_Hit(360)
+		last_hit_time = Time.get_ticks_msec()
+	if area.name.begins_with("Speil_Hitbox"):
+		$Timer.wait_time = $Timer.time_left + 0.3
+		$Timer.start()
 
 func _Hit(angle_change):
 	var rect = RectangleShape2D.new()
@@ -160,16 +164,16 @@ func _Hit(angle_change):
 	if rect_shape1 == 1:
 		if global.direction == "right":
 			rect.extents = Vector2(16,4)
-			anim.play("Left")
+			anim.play("up")
 		elif global.direction == "up":
 			rect.extents = Vector2(4,16)
-			anim.play("Left")
+			anim.play("up")
 		elif global.direction == "left":
 			rect.extents = Vector2(4,16)
-			anim.play("Left")
+			anim.play("up")
 		elif global.direction == "down":
 			rect.extents = Vector2(4,16)
-			anim.play("Left")
+			anim.play("up")
 		rect.extents = Vector2(4,16)
 		
 	elif rect_shape1 == 2:
@@ -222,7 +226,18 @@ func _Hit(angle_change):
 	if rect_shape1 == 9:
 		anim.play("Left")
 	if rect_shape1 == 10:
-		anim.play("up")
+		if global.direction == "right":
+			rect.extents = Vector2(16,4)
+			anim.play("Left")
+		elif global.direction == "up":
+			rect.extents = Vector2(4,16)
+			anim.play("Left")
+		elif global.direction == "left":
+			rect.extents = Vector2(4,16)
+			anim.play("Left")
+		elif global.direction == "down":
+			rect.extents = Vector2(4,16)
+			anim.play("Left")
 	$Area2D/CollisionShape2D.shape = rect
 
 func _on_timer_timeout():
@@ -233,3 +248,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		queue_free()
 	if area.name == "Monster":
 		queue_free()
+	

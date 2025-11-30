@@ -35,13 +35,15 @@ animations = [{
 }]
 
 [node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 12
+collision_mask = 12
 gravity_scale = 0.0
 script = ExtResource("1_wb1vr")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.3250942, 0.32132813)
+scale = Vector2(0.325094, 0.321328)
 shape = SubResource("RectangleShape2D_jiowd")
 
 [node name="Timer" type="Timer" parent="."]
@@ -49,7 +51,7 @@ wait_time = 114.89
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3250942, 0.32132813)
+scale = Vector2(0.325094, 0.321328)
 sprite_frames = SubResource("SpriteFrames_u2vue")
 animation = &"Left"
 
