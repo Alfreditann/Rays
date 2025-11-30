@@ -137,7 +137,7 @@ func _on_area_entered(area):
 		_Hit(180) # or whatever bounce angle you need
 	elif area.name == "Speil_Hitbox10":
 		rect_shape1 = 10
-		_Hit(360) # or whatever bounce angle you need
+		_Hit(90) # or whatever bounce angle you need
 	$Timer.start() # restart lifetime timer
 
 func _Hit(angle_change):
@@ -160,16 +160,16 @@ func _Hit(angle_change):
 	if rect_shape1 == 1:
 		if global.direction == "right":
 			rect.extents = Vector2(16,4)
-			anim.play("up")
+			anim.play("Left")
 		elif global.direction == "up":
 			rect.extents = Vector2(4,16)
-			anim.play("up")
+			anim.play("Left")
 		elif global.direction == "left":
 			rect.extents = Vector2(4,16)
-			anim.play("up")
+			anim.play("Left")
 		elif global.direction == "down":
 			rect.extents = Vector2(4,16)
-			anim.play("up")
+			anim.play("Left")
 		rect.extents = Vector2(4,16)
 		
 	elif rect_shape1 == 2:
@@ -222,18 +222,7 @@ func _Hit(angle_change):
 	if rect_shape1 == 9:
 		anim.play("Left")
 	if rect_shape1 == 10:
-		if global.direction == "right":
-			rect.extents = Vector2(16,4)
-			anim.play("Left")
-		elif global.direction == "up":
-			rect.extents = Vector2(4,16)
-			anim.play("Left")
-		elif global.direction == "left":
-			rect.extents = Vector2(4,16)
-			anim.play("Left")
-		elif global.direction == "down":
-			rect.extents = Vector2(4,16)
-			anim.play("Left")
+		anim.play("up")
 	$Area2D/CollisionShape2D.shape = rect
 
 func _on_timer_timeout():

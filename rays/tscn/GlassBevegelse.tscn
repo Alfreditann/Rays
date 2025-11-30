@@ -146,6 +146,7 @@ shape = SubResource("RectangleShape2D_8dw2w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
 position = Vector2(-2, 20)
 rotation = 1.56905
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_f237s")
 debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
 
