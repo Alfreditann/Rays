@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://wyrq3063vc85"]
+[gd_scene load_steps=5 format=3 uid="uid://wyrq3063vc85"]
 
 [ext_resource type="Texture2D" uid="uid://bv1r4tsbs70h0" path="res://Sprites/William.jpg" id="1_cdtp6"]
-[ext_resource type="Script" uid="uid://dbqxwywt5pjio" path="res://Script/moveble_speil.gd" id="1_t2db0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2db0"]
 size = Vector2(19.5, 26.5)
@@ -17,7 +16,6 @@ position = Vector2(502, 160)
 collision_layer = 2
 linear_damp = 100.0
 angular_damp = 100.0
-script = ExtResource("1_t2db0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.75, 0.5)

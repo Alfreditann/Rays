@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-
-
 var speed := 340
 var last_hit_time := 0.0
 var hit_delay := 0.2 # prevents multiple triggers per frame
